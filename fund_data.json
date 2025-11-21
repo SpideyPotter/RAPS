@@ -1,0 +1,910 @@
+{
+  "basic_info": {
+    "fund_name": "Axis Aggressive Hybrid Fund - Gr",
+    "nav": "₹21.03",
+    "aum": "₹1,538.02"
+  },
+  "scheme_details": {
+    "AUM (CR.)": "₹1,538.02",
+    "Nature": "Open Ended",
+    "Category": "Hybrid - Aggressive Hybrid Fund",
+    "Benchmark": "Crisil Hybrid 35+65 - Aggressive Index",
+    "Date of Inception": "09-08-2018",
+    "Age": "7.25 Years",
+    "Expense Ratio": "2.16%",
+    "Options Available": "Growth/dividend",
+    "Minimum – Lump sum": "500",
+    "Minimum – SIP": "100",
+    "Exit Load": "Upto 12 Months 1.00%",
+    "Entry Load": "nil"
+  },
+  "fund_managers": [
+    {
+      "name": "Mr. Aditya Pagaria",
+      "tenure": "Feb 2023 - Present",
+      "managing": "Managing 28 schemes"
+    },
+    {
+      "name": "Mr. Jayesh Sundar",
+      "tenure": "Sep 2023 - Present",
+      "managing": "Managing 9 schemes"
+    },
+    {
+      "name": "Mr. Devang Shah",
+      "tenure": "Apr 2024 - Present",
+      "managing": "Managing 27 schemes"
+    }
+  ],
+  "top_holdings": {
+    "HDFC Bank Ltd.": "5.81%",
+    "Reliance Industries Ltd.": "4.92%",
+    "ICICI Bank Ltd.": "4.64%",
+    "Infosys Ltd.": "3.68%",
+    "07.25% GOI - 12-Jun-2063": "3.56%"
+  },
+  "sector_holdings": {
+    "Banks": "16.15%",
+    "IT - Software": "5.79%",
+    "Petroleum Products": "5.62%",
+    "Finance": "5.31%",
+    "Pharmaceuticals & Biotechnology": "4.68%"
+  },
+  "asset_allocation": {
+    "EQUITY": "73.99%",
+    "DEBT": "20.84%",
+    "OTHERS": "5.17%"
+  },
+  "top_asset_type": {
+    "Corporate Debt": "15.62%",
+    "Government Securities": "4.27%",
+    "Treasury Bills": "0.96%"
+  },
+  "credit_profile": {
+    "AAA and Equivalent": "7.59%",
+    "SOV": "5.23%",
+    "AA and Equivalent": "4.69%",
+    "Below AA": "3.34%"
+  },
+  "portfolio_summary": {
+    "Total Assets (Cr.)": "₹1,538.02",
+    "Equity %": "73.99",
+    "Debt %": "20.84",
+    "Others %": "5.17"
+  },
+  "portfolio_holdings": {
+    "equity": [
+      {
+        "Scheme Name": "HDFC Bank Ltd.",
+        "Sector": "Banks",
+        "% of Total Assets": "5.81",
+        "Cumulative%": "5.81"
+      },
+      {
+        "Scheme Name": "Reliance Industries Ltd.",
+        "Sector": "Petroleum Products",
+        "% of Total Assets": "4.92",
+        "Cumulative%": "10.74"
+      },
+      {
+        "Scheme Name": "ICICI Bank Ltd.",
+        "Sector": "Banks",
+        "% of Total Assets": "4.64",
+        "Cumulative%": "15.38"
+      },
+      {
+        "Scheme Name": "Infosys Ltd.",
+        "Sector": "IT - Software",
+        "% of Total Assets": "3.68",
+        "Cumulative%": "19.06"
+      },
+      {
+        "Scheme Name": "Bharti Airtel Ltd.",
+        "Sector": "Telecom - Services",
+        "% of Total Assets": "3.25",
+        "Cumulative%": "22.31"
+      },
+      {
+        "Scheme Name": "State Bank Of India",
+        "Sector": "Banks",
+        "% of Total Assets": "3.00",
+        "Cumulative%": "25.31"
+      },
+      {
+        "Scheme Name": "Larsen & Toubro Ltd.",
+        "Sector": "Construction",
+        "% of Total Assets": "2.45",
+        "Cumulative%": "27.76"
+      },
+      {
+        "Scheme Name": "Mahindra & Mahindra Ltd.",
+        "Sector": "Automobiles",
+        "% of Total Assets": "2.33",
+        "Cumulative%": "30.09"
+      },
+      {
+        "Scheme Name": "Bajaj Finance Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "1.96",
+        "Cumulative%": "32.05"
+      },
+      {
+        "Scheme Name": "NTPC Ltd.",
+        "Sector": "Power",
+        "% of Total Assets": "1.45",
+        "Cumulative%": "33.5"
+      },
+      {
+        "Scheme Name": "FSN E-Commerce Ventures Ltd.",
+        "Sector": "Retailing",
+        "% of Total Assets": "1.45",
+        "Cumulative%": "34.94"
+      },
+      {
+        "Scheme Name": "Kotak Mahindra Bank Ltd.",
+        "Sector": "Banks",
+        "% of Total Assets": "1.29",
+        "Cumulative%": "36.23"
+      },
+      {
+        "Scheme Name": "Divi's Laboratories Ltd.",
+        "Sector": "Pharmaceuticals & Biotechnology",
+        "% of Total Assets": "1.17",
+        "Cumulative%": "37.4"
+      },
+      {
+        "Scheme Name": "DOMS Industries Ltd.",
+        "Sector": "Household Products",
+        "% of Total Assets": "1.09",
+        "Cumulative%": "38.5"
+      },
+      {
+        "Scheme Name": "PI Industries Ltd.",
+        "Sector": "Fertilizers & Agrochemicals",
+        "% of Total Assets": "1.06",
+        "Cumulative%": "39.56"
+      },
+      {
+        "Scheme Name": "Apollo Hospitals Enterprise Ltd.",
+        "Sector": "Healthcare Services",
+        "% of Total Assets": "1.01",
+        "Cumulative%": "40.57"
+      },
+      {
+        "Scheme Name": "Indian Bank",
+        "Sector": "Banks",
+        "% of Total Assets": "0.99",
+        "Cumulative%": "41.56"
+      },
+      {
+        "Scheme Name": "Tata Consultancy Services Ltd.",
+        "Sector": "IT - Software",
+        "% of Total Assets": "0.99",
+        "Cumulative%": "42.55"
+      },
+      {
+        "Scheme Name": "HDFC Life Insurance Company Ltd.",
+        "Sector": "Insurance",
+        "% of Total Assets": "0.97",
+        "Cumulative%": "43.52"
+      },
+      {
+        "Scheme Name": "Kaynes Technology India Ltd.",
+        "Sector": "Industrial Manufacturing",
+        "% of Total Assets": "0.95",
+        "Cumulative%": "44.48"
+      },
+      {
+        "Scheme Name": "Krishna Institute of Medical Sciences Ltd",
+        "Sector": "Healthcare Services",
+        "% of Total Assets": "0.95",
+        "Cumulative%": "45.43"
+      },
+      {
+        "Scheme Name": "PNB Housing Finance Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "0.94",
+        "Cumulative%": "46.37"
+      },
+      {
+        "Scheme Name": "Premier Energies Ltd.",
+        "Sector": "Electrical Equipment",
+        "% of Total Assets": "0.93",
+        "Cumulative%": "47.3"
+      },
+      {
+        "Scheme Name": "Cipla Ltd.",
+        "Sector": "Pharmaceuticals & Biotechnology",
+        "% of Total Assets": "0.90",
+        "Cumulative%": "48.19"
+      },
+      {
+        "Scheme Name": "Sun Pharmaceutical Industries Ltd.",
+        "Sector": "Pharmaceuticals & Biotechnology",
+        "% of Total Assets": "0.87",
+        "Cumulative%": "49.06"
+      },
+      {
+        "Scheme Name": "Cholamandalam Investment and Finance Company Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "0.86",
+        "Cumulative%": "49.92"
+      },
+      {
+        "Scheme Name": "Mankind Pharma Ltd.",
+        "Sector": "Pharmaceuticals & Biotechnology",
+        "% of Total Assets": "0.84",
+        "Cumulative%": "50.76"
+      },
+      {
+        "Scheme Name": "Eternal Ltd.",
+        "Sector": "Retailing",
+        "% of Total Assets": "0.84",
+        "Cumulative%": "51.6"
+      },
+      {
+        "Scheme Name": "SBI Life Insurance Company Ltd.",
+        "Sector": "Insurance",
+        "% of Total Assets": "0.77",
+        "Cumulative%": "52.37"
+      },
+      {
+        "Scheme Name": "GE Vernova T&D India Ltd.",
+        "Sector": "Electrical Equipment",
+        "% of Total Assets": "0.74",
+        "Cumulative%": "53.11"
+      },
+      {
+        "Scheme Name": "Awfis Space Solutions Ltd.",
+        "Sector": "Commercial Services & Supplies",
+        "% of Total Assets": "0.72",
+        "Cumulative%": "53.83"
+      },
+      {
+        "Scheme Name": "Indian Oil Corporation Ltd.",
+        "Sector": "Petroleum Products",
+        "% of Total Assets": "0.69",
+        "Cumulative%": "54.52"
+      },
+      {
+        "Scheme Name": "Dixon Technologies (India) Ltd.",
+        "Sector": "Consumer Durables",
+        "% of Total Assets": "0.69",
+        "Cumulative%": "55.21"
+      },
+      {
+        "Scheme Name": "Titan Company Ltd.",
+        "Sector": "Consumer Durables",
+        "% of Total Assets": "0.66",
+        "Cumulative%": "55.87"
+      },
+      {
+        "Scheme Name": "Varun Beverages Ltd.",
+        "Sector": "Beverages",
+        "% of Total Assets": "0.66",
+        "Cumulative%": "56.53"
+      },
+      {
+        "Scheme Name": "CG Power and Industrial Solutions Ltd.",
+        "Sector": "Electrical Equipment",
+        "% of Total Assets": "0.65",
+        "Cumulative%": "57.19"
+      },
+      {
+        "Scheme Name": "Bharat Electronics Ltd.",
+        "Sector": "Aerospace & Defense",
+        "% of Total Assets": "0.65",
+        "Cumulative%": "57.84"
+      },
+      {
+        "Scheme Name": "The Phoenix Mills Ltd.",
+        "Sector": "Realty",
+        "% of Total Assets": "0.63",
+        "Cumulative%": "58.47"
+      },
+      {
+        "Scheme Name": "Hindustan Aeronautics Ltd.",
+        "Sector": "Aerospace & Defense",
+        "% of Total Assets": "0.63",
+        "Cumulative%": "59.09"
+      },
+      {
+        "Scheme Name": "Tata Power Company Ltd.",
+        "Sector": "Power",
+        "% of Total Assets": "0.60",
+        "Cumulative%": "59.69"
+      },
+      {
+        "Scheme Name": "Avenue Supermarts Ltd.",
+        "Sector": "Retailing",
+        "% of Total Assets": "0.59",
+        "Cumulative%": "60.28"
+      },
+      {
+        "Scheme Name": "JB Chemicals & Pharmaceuticals Ltd.",
+        "Sector": "Pharmaceuticals & Biotechnology",
+        "% of Total Assets": "0.59",
+        "Cumulative%": "60.87"
+      },
+      {
+        "Scheme Name": "Suzlon Energy Ltd.",
+        "Sector": "Electrical Equipment",
+        "% of Total Assets": "0.58",
+        "Cumulative%": "61.45"
+      },
+      {
+        "Scheme Name": "Arvind Fashions Ltd.",
+        "Sector": "Retailing",
+        "% of Total Assets": "0.56",
+        "Cumulative%": "62.02"
+      },
+      {
+        "Scheme Name": "Sansera Engineering Ltd.",
+        "Sector": "Auto Components",
+        "% of Total Assets": "0.56",
+        "Cumulative%": "62.57"
+      },
+      {
+        "Scheme Name": "Anant Raj Ltd.",
+        "Sector": "Realty",
+        "% of Total Assets": "0.53",
+        "Cumulative%": "63.1"
+      },
+      {
+        "Scheme Name": "Tata Steel Ltd.",
+        "Sector": "Ferrous Metals",
+        "% of Total Assets": "0.52",
+        "Cumulative%": "63.62"
+      },
+      {
+        "Scheme Name": "Jyoti CNC Automation Ltd.",
+        "Sector": "Industrial Manufacturing",
+        "% of Total Assets": "0.52",
+        "Cumulative%": "64.14"
+      },
+      {
+        "Scheme Name": "Hindalco Industries Ltd.",
+        "Sector": "Non - Ferrous Metals",
+        "% of Total Assets": "0.51",
+        "Cumulative%": "64.65"
+      },
+      {
+        "Scheme Name": "Britannia Industries Ltd.",
+        "Sector": "Food Products",
+        "% of Total Assets": "0.50",
+        "Cumulative%": "65.15"
+      },
+      {
+        "Scheme Name": "Tech Mahindra Ltd.",
+        "Sector": "IT - Software",
+        "% of Total Assets": "0.50",
+        "Cumulative%": "65.65"
+      },
+      {
+        "Scheme Name": "Interglobe Aviation Ltd.",
+        "Sector": "Transport Services",
+        "% of Total Assets": "0.49",
+        "Cumulative%": "66.15"
+      },
+      {
+        "Scheme Name": "Bajaj Finserv Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "0.47",
+        "Cumulative%": "66.62"
+      },
+      {
+        "Scheme Name": "Brigade Enterprises Ltd.",
+        "Sector": "Realty",
+        "% of Total Assets": "0.47",
+        "Cumulative%": "67.09"
+      },
+      {
+        "Scheme Name": "Navin Fluorine International Ltd.",
+        "Sector": "Chemicals & Petrochemicals",
+        "% of Total Assets": "0.46",
+        "Cumulative%": "67.55"
+      },
+      {
+        "Scheme Name": "REC Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "0.43",
+        "Cumulative%": "67.98"
+      },
+      {
+        "Scheme Name": "PG Electroplast Ltd.",
+        "Sector": "Consumer Durables",
+        "% of Total Assets": "0.43",
+        "Cumulative%": "68.41"
+      },
+      {
+        "Scheme Name": "Pidilite Industries Ltd.",
+        "Sector": "Chemicals & Petrochemicals",
+        "% of Total Assets": "0.43",
+        "Cumulative%": "68.83"
+      },
+      {
+        "Scheme Name": "Hindustan Unilever Ltd.",
+        "Sector": "Diversified FMCG",
+        "% of Total Assets": "0.41",
+        "Cumulative%": "69.24"
+      },
+      {
+        "Scheme Name": "Bank Of Baroda",
+        "Sector": "Banks",
+        "% of Total Assets": "0.38",
+        "Cumulative%": "69.62"
+      },
+      {
+        "Scheme Name": "HCL Technologies Ltd.",
+        "Sector": "IT - Software",
+        "% of Total Assets": "0.36",
+        "Cumulative%": "69.98"
+      },
+      {
+        "Scheme Name": "Samvardhana Motherson International Ltd.",
+        "Sector": "Auto Components",
+        "% of Total Assets": "0.34",
+        "Cumulative%": "70.32"
+      },
+      {
+        "Scheme Name": "Hyundai Motor India Ltd.",
+        "Sector": "Automobiles",
+        "% of Total Assets": "0.32",
+        "Cumulative%": "70.64"
+      },
+      {
+        "Scheme Name": "Zydus Lifesciences Ltd.",
+        "Sector": "Pharmaceuticals & Biotechnology",
+        "% of Total Assets": "0.32",
+        "Cumulative%": "70.95"
+      },
+      {
+        "Scheme Name": "UNO Minda Ltd.",
+        "Sector": "Auto Components",
+        "% of Total Assets": "0.27",
+        "Cumulative%": "71.22"
+      },
+      {
+        "Scheme Name": "Mphasis Ltd.",
+        "Sector": "IT - Software",
+        "% of Total Assets": "0.26",
+        "Cumulative%": "71.48"
+      },
+      {
+        "Scheme Name": "Aadhar Housing Finance Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "0.25",
+        "Cumulative%": "71.74"
+      },
+      {
+        "Scheme Name": "Shriram Finance Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "0.25",
+        "Cumulative%": "71.99"
+      },
+      {
+        "Scheme Name": "Sona BLW Precision Forgings Ltd.",
+        "Sector": "Auto Components",
+        "% of Total Assets": "0.23",
+        "Cumulative%": "72.22"
+      },
+      {
+        "Scheme Name": "Voltamp Transformers Ltd.",
+        "Sector": "Electrical Equipment",
+        "% of Total Assets": "0.21",
+        "Cumulative%": "72.43"
+      },
+      {
+        "Scheme Name": "Sumitomo Chemical India Ltd.",
+        "Sector": "Fertilizers & Agrochemicals",
+        "% of Total Assets": "0.20",
+        "Cumulative%": "72.63"
+      },
+      {
+        "Scheme Name": "Vijaya Diagnostic Centre Ltd.",
+        "Sector": "Healthcare Services",
+        "% of Total Assets": "0.19",
+        "Cumulative%": "72.82"
+      },
+      {
+        "Scheme Name": "Schaeffler India Ltd.",
+        "Sector": "Auto Components",
+        "% of Total Assets": "0.16",
+        "Cumulative%": "72.98"
+      },
+      {
+        "Scheme Name": "Tata Motors Passenger Vehicles Ltd.",
+        "Sector": "Automobiles",
+        "% of Total Assets": "0.15",
+        "Cumulative%": "73.13"
+      },
+      {
+        "Scheme Name": "Can Fin Homes Ltd.",
+        "Sector": "Finance",
+        "% of Total Assets": "0.14",
+        "Cumulative%": "73.28"
+      },
+      {
+        "Scheme Name": "Clean Science And Technology Ltd.",
+        "Sector": "Chemicals & Petrochemicals",
+        "% of Total Assets": "0.13",
+        "Cumulative%": "73.41"
+      },
+      {
+        "Scheme Name": "ITC Ltd.",
+        "Sector": "Diversified FMCG",
+        "% of Total Assets": "0.11",
+        "Cumulative%": "73.52"
+      },
+      {
+        "Scheme Name": "Titagarh Rail Systems Ltd.",
+        "Sector": "Industrial Manufacturing",
+        "% of Total Assets": "0.09",
+        "Cumulative%": "73.61"
+      },
+      {
+        "Scheme Name": "DLF Ltd.",
+        "Sector": "Realty",
+        "% of Total Assets": "0.09",
+        "Cumulative%": "73.7"
+      },
+      {
+        "Scheme Name": "Vedant Fashions Ltd.",
+        "Sector": "Retailing",
+        "% of Total Assets": "0.08",
+        "Cumulative%": "73.78"
+      },
+      {
+        "Scheme Name": "Nestle India Ltd.",
+        "Sector": "Food Products",
+        "% of Total Assets": "0.06",
+        "Cumulative%": "73.84"
+      },
+      {
+        "Scheme Name": "Oil & Natural Gas Corporation Ltd.",
+        "Sector": "Oil",
+        "% of Total Assets": "0.06",
+        "Cumulative%": "73.9"
+      },
+      {
+        "Scheme Name": "Coal India Ltd.",
+        "Sector": "Consumable Fuels",
+        "% of Total Assets": "0.05",
+        "Cumulative%": "73.95"
+      },
+      {
+        "Scheme Name": "Suryoday Small Finance Bank Ltd.",
+        "Sector": "Banks",
+        "% of Total Assets": "0.04",
+        "Cumulative%": "73.99"
+      }
+    ],
+    "debt": [
+      {
+        "Security Name": "07.25% GOI - 12-Jun-2063",
+        "Asset Type": "Government Securities",
+        "Rating": "SOV",
+        "% of Total Assets": "3.56",
+        "Cumulative%": "3.56"
+      },
+      {
+        "Security Name": "Bharti Telecom Ltd. -SR-XXI 08.75% (05-Nov-2029)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AAA and Equivalent",
+        "% of Total Assets": "1.69",
+        "Cumulative%": "5.25"
+      },
+      {
+        "Security Name": "Bajaj Finance Ltd. 07.87% (08-Feb-2034)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AAA and Equivalent",
+        "% of Total Assets": "1.66",
+        "Cumulative%": "6.91"
+      },
+      {
+        "Security Name": "Poonawalla Fincorp Ltd. SR-B2 07.60% (28-May-2027)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AAA and Equivalent",
+        "% of Total Assets": "1.63",
+        "Cumulative%": "8.53"
+      },
+      {
+        "Security Name": "Cholamandalam Investment & Finance Co. Ltd. 07.5% (30-Sep-2026)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "Below AA",
+        "% of Total Assets": "1.37",
+        "Cumulative%": "9.9"
+      },
+      {
+        "Security Name": "Vedanta Ltd. -SR-I 09.40% (20-Feb-2027)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "1.18",
+        "Cumulative%": "11.08"
+      },
+      {
+        "Security Name": "Bamboo Hotel and Global Centre (Delhi) Pvt Ltd. SR-I 10.81% (31-Jan-2028)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "Below AA",
+        "% of Total Assets": "0.99",
+        "Cumulative%": "12.07"
+      },
+      {
+        "Security Name": "HDFC Bank Ltd. SR-Y005 06.83% (08-Jan-2031)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AAA and Equivalent",
+        "% of Total Assets": "0.96",
+        "Cumulative%": "13.03"
+      },
+      {
+        "Security Name": "Tata Capital Housing Finance Ltd. -SR-A 7.8445% (18-Sep-2026)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AAA and Equivalent",
+        "% of Total Assets": "0.82",
+        "Cumulative%": "13.85"
+      },
+      {
+        "Security Name": "Godrej Industries Ltd. SR-01 08.10% (22-May-2028)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "0.66",
+        "Cumulative%": "14.51"
+      },
+      {
+        "Security Name": "TVS Holdings Ltd. - 08.65% (07-Jun-2029)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "0.66",
+        "Cumulative%": "15.16"
+      },
+      {
+        "Security Name": "GMR Airports Ltd. BD 5.00% (13-Feb-2027)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "Below AA",
+        "% of Total Assets": "0.65",
+        "Cumulative%": "15.82"
+      },
+      {
+        "Security Name": "Tata Projects Ltd.SR-I 07.99% (06-Oct-2025)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "0.65",
+        "Cumulative%": "16.47"
+      },
+      {
+        "Security Name": "Mahanagar Telephone Nigam Ltd. SR-VII A 07.59% (20-Jul-2033)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AAA and Equivalent",
+        "% of Total Assets": "0.64",
+        "Cumulative%": "17.11"
+      },
+      {
+        "Security Name": "182 Days Treasury Bill - 05-Mar-2026",
+        "Asset Type": "Treasury Bills",
+        "Rating": "SOV",
+        "% of Total Assets": "0.64",
+        "Cumulative%": "17.74"
+      },
+      {
+        "Security Name": "Aptus Finance India Pvt Ltd. (06-Mar-2029)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "0.57",
+        "Cumulative%": "18.31"
+      },
+      {
+        "Security Name": "07.04% GOI - 03-Jun-2029",
+        "Asset Type": "Government Securities",
+        "Rating": "SOV",
+        "% of Total Assets": "0.34",
+        "Cumulative%": "18.65"
+      },
+      {
+        "Security Name": "Aadhar Housing Finance Ltd.8.50% (26-May-2026)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "0.33",
+        "Cumulative%": "18.97"
+      },
+      {
+        "Security Name": "Aditya Birla Digital Fashion Ventures Ltd. 08.80% (26-Aug-2027)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "0.33",
+        "Cumulative%": "19.3"
+      },
+      {
+        "Security Name": "Aptus Value Housing Finance India Ltd Sr-RR 08.75% (11-Mar-2030)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AA and Equivalent",
+        "% of Total Assets": "0.32",
+        "Cumulative%": "19.63"
+      },
+      {
+        "Security Name": "91 Days Treasury Bill - 30-Oct-2025",
+        "Asset Type": "Treasury Bills",
+        "Rating": "SOV",
+        "% of Total Assets": "0.32",
+        "Cumulative%": "19.95"
+      },
+      {
+        "Security Name": "IKF Finance Ltd. 09.04% (12-Sep-2027)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "Below AA",
+        "% of Total Assets": "0.32",
+        "Cumulative%": "20.27"
+      },
+      {
+        "Security Name": "Power Finance Corpn. Ltd. SR-200 BD 07.40% (08-May-2030)",
+        "Asset Type": "Corporate Debt",
+        "Rating": "AAA and Equivalent",
+        "% of Total Assets": "0.20",
+        "Cumulative%": "20.47"
+      },
+      {
+        "Security Name": "07.92% West Bengal SDL - 15-Mar-2027",
+        "Asset Type": "Government Securities",
+        "Rating": "SOV",
+        "% of Total Assets": "0.13",
+        "Cumulative%": "20.6"
+      },
+      {
+        "Security Name": "07.17% Tamil Nadu SDL - 27-Nov-2029",
+        "Asset Type": "Government Securities",
+        "Rating": "SOV",
+        "% of Total Assets": "0.13",
+        "Cumulative%": "20.74"
+      },
+      {
+        "Security Name": "07.17% Karnataka SDL - 27-Nov-2029",
+        "Asset Type": "Government Securities",
+        "Rating": "SOV",
+        "% of Total Assets": "0.07",
+        "Cumulative%": "20.8"
+      },
+      {
+        "Security Name": "06.90% Karnataka SDL - 17-Jul-2029",
+        "Asset Type": "Government Securities",
+        "Rating": "SOV",
+        "% of Total Assets": "0.04",
+        "Cumulative%": "20.84"
+      },
+      {
+        "Security Name": "04.04% GOI - 04-Oct-2028",
+        "Asset Type": "Government Securities",
+        "Rating": "SOV",
+        "% of Total Assets": "0.00",
+        "Cumulative%": "20.84"
+      }
+    ],
+    "others": [
+      {
+        "Security Name": "Clearing Corporation Of India Ltd.",
+        "Asset Type": "Cash & Cash Equivalents and Net Assets",
+        "% of Total Assets": "2.95",
+        "Cumulative%": "2.95"
+      },
+      {
+        "Security Name": "Indus Infra Trust",
+        "Asset Type": "REITs & InvITs",
+        "% of Total Assets": "1.47",
+        "Cumulative%": "4.43"
+      },
+      {
+        "Security Name": "Net Current Asset",
+        "Asset Type": "Cash & Cash Equivalents and Net Assets",
+        "% of Total Assets": "0.48",
+        "Cumulative%": "4.91"
+      },
+      {
+        "Security Name": "Embassy Office Parks REIT",
+        "Asset Type": "REITs & InvITs",
+        "% of Total Assets": "0.26",
+        "Cumulative%": "5.17"
+      }
+    ]
+  },
+  "performance_lumpsum": [
+    {
+      "Period": "1 Year",
+      "Amount": "10,752",
+      "Scheme": "7.52%",
+      "Benchmark": "9.23%"
+    },
+    {
+      "Period": "2 Year",
+      "Amount": "13,006",
+      "Scheme": "14.02%",
+      "Benchmark": "14.31%"
+    },
+    {
+      "Period": "3 Year",
+      "Amount": "13,665",
+      "Scheme": "10.96%",
+      "Benchmark": "12.82%"
+    },
+    {
+      "Period": "5 Year",
+      "Amount": "17,613",
+      "Scheme": "11.98%",
+      "Benchmark": "13.98%"
+    },
+    {
+      "Period": "10 Year",
+      "Amount": "NA",
+      "Scheme": "NA",
+      "Benchmark": "12.67%"
+    },
+    {
+      "Period": "15 Year",
+      "Amount": "NA",
+      "Scheme": "NA",
+      "Benchmark": "11.08%"
+    },
+    {
+      "Period": "20 Year",
+      "Amount": "NA",
+      "Scheme": "NA",
+      "Benchmark": "12.19%"
+    },
+    {
+      "Period": "Since Inception",
+      "Amount": "21,030",
+      "Scheme": "10.76%",
+      "Benchmark": "13.82%"
+    }
+  ],
+  "performance_sip": [
+    {
+      "Period": "1 Year",
+      "Amount": "1,26,699",
+      "Scheme": "10.53%",
+      "Benchmark": "11.46%"
+    },
+    {
+      "Period": "2 Year",
+      "Amount": "2,65,656",
+      "Scheme": "10.10%",
+      "Benchmark": "10.01%"
+    },
+    {
+      "Period": "3 Year",
+      "Amount": "4,29,817",
+      "Scheme": "11.85%",
+      "Benchmark": "12.54%"
+    },
+    {
+      "Period": "5 Year",
+      "Amount": "7,83,389",
+      "Scheme": "10.61%",
+      "Benchmark": "12.52%"
+    },
+    {
+      "Period": "10 Year",
+      "Amount": "NA",
+      "Scheme": "NA",
+      "Benchmark": "12.98%"
+    },
+    {
+      "Period": "15 Year",
+      "Amount": "NA",
+      "Scheme": "NA",
+      "Benchmark": "12.59%"
+    },
+    {
+      "Period": "20 Year",
+      "Amount": "NA",
+      "Scheme": "NA",
+      "Benchmark": "12.02%"
+    },
+    {
+      "Period": "Since Inception",
+      "Amount": "13,32,912",
+      "Scheme": "11.61%",
+      "Benchmark": "9.12%"
+    }
+  ],
+  "documents": [
+    "Key Information Memorandum (KIM)",
+    "Scheme Information Document (SID)"
+  ]
+}
