@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAPS Wealth - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0f172a',
+              secondary: '#059669',
+              accent: '#0d9488',
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      /* Custom Scrollbar for Dropdown */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      /* Header Search Styles */
+      .header_searchContainer__271j3 {
+          display: flex;
+          align-items: center;
+          background: #f3f4f6;
+          border-radius: 8px;
+          padding: 8px 12px;
+          width: 100%;
+          max-width: 400px;
+          margin: 0 20px;
+      }
+      
+      .header_searchInner__3VNSc {
+          display: flex;
+          align-items: center;
+          width: 100%;
+      }
+      
+      .header_searchInner__3VNSc input {
+          background: transparent;
+          border: none;
+          outline: none;
+          width: 100%;
+          font-size: 14px;
+          color: #374151;
+      }
+      
+      .header_searchInner__3VNSc button {
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          color: #6b7280;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          margin-left: 8px;
+      }
+      
+      .header_searchInner__3VNSc button:hover {
+          color: #0f172a;
+      }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
+
+    <header class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center h-auto md:h-20 py-4 md:py-0 gap-4 md:gap-0">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="/static/logo.jpg" alt="RAPS Wealth" class="h-10 w-10 rounded-full object-cover">
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary tracking-tight">RAPS<span class="text-secondary">Wealth</span></h1>
+                        <p class="text-xs text-slate-500 font-medium tracking-widest">FINANCIAL SERVICES</p>
+                    </div>
+                </a>
+
+                <!-- Header Search Bar (Mid) -->
+                <div class="hidden md:block flex-1 flex justify-center">
+                    <div class="header_searchContainer__271j3 relative">
+                        <div class="header_searchInner__3VNSc">
+                            <input type="text" id="header-search-input" placeholder="Search by Scheme Name" value="" autocomplete="off">
+                            <button onclick="triggerHeaderSearch()">
+                                <span role="img" aria-label="search" class="anticon anticon-search">
+                                    <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path></svg>
+                                </span>
+                            </button>
+                        </div>
+                        
+                        <!-- Dropdown for Header Search -->
+                        <div
+                            id="header-dropdown-container"
+                            class="absolute top-full left-0 w-full mt-2 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden hidden z-50 text-left animate-in fade-in zoom-in-95 duration-200"
+                        >
+                            <ul
+                                id="header-dropdown-list"
+                                class="max-h-80 overflow-y-auto custom-scrollbar py-2"
+                            >
+                                <!-- Items will be injected here -->
+                            </ul>
+                            <div class="bg-slate-50 px-4 py-2 text-xs text-slate-400 border-t border-slate-100 flex justify-between items-center">
+                                <span>Matches</span>
+                                <span id="header-match-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="flex items-center gap-4 md:gap-8 overflow-x-auto max-w-full pb-2 md:pb-0 w-full md:w-auto justify-center md:justify-end">
+                    <a href="index.html" class="text-secondary border-b-2 border-secondary pb-1 text-sm font-semibold whitespace-nowrap transition-colors duration-200">Home</a>
+                    <a href="/calculator" class="text-slate-600 hover:text-primary text-sm font-semibold whitespace-nowrap transition-colors duration-200">RAPS Calculator</a>
+                    <a href="/growth-simulator" class="text-slate-600 hover:text-primary text-sm font-semibold whitespace-nowrap transition-colors duration-200">Growth Calculator</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col">
+        <section class="relative bg-gradient-to-r from-primary to-slate-800 text-white py-20 lg:py-32 overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-slate-900 bg-cover bg-center mix-blend-overlay"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-3xl">
+                    <div class="inline-block bg-secondary/20 border border-secondary/50 rounded-full px-4 py-1 mb-6">
+                        <span class="text-secondary font-semibold text-sm tracking-wide">INTELLIGENT INVESTING</span>
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                        Grow Your Wealth with <span class="text-secondary">Data-Driven</span> Decisions
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-10 max-w-2xl">
+                        Experience the power of AI-enhanced portfolio management. Analyze, predict, and optimize your mutual fund investments with RAPS Wealth.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="funds.html" class="bg-secondary hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold transition-all text-center shadow-lg shadow-emerald-900/20 flex items-center justify-center gap-2">
+                            Explore Mutual Funds <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="/calculator" class="bg-white text-primary hover:bg-slate-100 px-8 py-4 rounded-lg font-semibold transition-all text-center border border-slate-200 flex items-center justify-center gap-2">
+                            Try RAPS Calculator <i data-lucide="trending-up" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="py-16 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-primary mb-4">Why Mutual Funds?</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">
+                        Professional management, diversification, and liquidity make mutual funds an ideal choice for wealth creation.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group">
+                        <div class="w-16 h-16 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="target" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Equity Funds</h3>
+                        <p class="text-slate-500 leading-relaxed">High growth potential for long-term goals.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group">
+                        <div class="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                             <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Debt Funds</h3>
+                        <p class="text-slate-500 leading-relaxed">Stable returns with lower risk profile.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 group">
+                        <div class="w-16 h-16 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                             <i data-lucide="pie-chart" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-3">Hybrid Funds</h3>
+                        <p class="text-slate-500 leading-relaxed">Balanced approach for moderate risk.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">The Investment Dilemma</h2>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-1 h-full bg-red-500 rounded-full"></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-lg">Information Overload</h4>
+                                    <p class="text-slate-500">Thousands of schemes make it hard to choose the right one.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-1 h-full bg-red-500 rounded-full"></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-lg">Emotional Decisions</h4>
+                                    <p class="text-slate-500">Buying high and selling low due to market panic.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 bg-slate-900 text-white p-10 rounded-2xl shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-secondary rounded-full filter blur-3xl opacity-20 translate-x-10 -translate-y-10"></div>
+                        <h2 class="text-3xl font-bold mb-6 text-secondary">The RAPS Solution</h2>
+                        <p class="text-slate-300 mb-8 leading-relaxed">
+                            We use advanced algorithms to simplify your journey. Our RAPS Engine analyzes market trends, fund manager performance, and risk metrics to curate the perfect basket for you.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-800 p-4 rounded-lg">
+                                <i data-lucide="bar-chart-2" class="text-secondary mb-2 w-6 h-6"></i>
+                                <h4 class="font-bold">Smart Analytics</h4>
+                            </div>
+                            <div class="bg-slate-800 p-4 rounded-lg">
+                                <i data-lucide="trending-up" class="text-secondary mb-2 w-6 h-6"></i>
+                                <h4 class="font-bold">NAV Prediction</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-slate-300 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white font-bold">R</div>
+                        <h2 class="text-xl font-bold text-white">RAPS<span class="text-secondary">Wealth</span></h2>
+                    </div>
+                    <p class="text-sm leading-relaxed text-slate-400 mb-6">
+                        Empowering investors with data-driven insights and AI-powered tools for smarter mutual fund investments.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-colors cursor-pointer">in</div>
+                        <div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-colors cursor-pointer">fb</div>
+                        <div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-secondary transition-colors cursor-pointer">x</div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html" class="hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="funds.html" class="hover:text-secondary transition-colors">Mutual Funds</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">RAPS Calculator</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">SIP Insights</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="hover:text-secondary cursor-pointer transition-colors">Portfolio Analysis</li>
+                        <li class="hover:text-secondary cursor-pointer transition-colors">Tax Planning</li>
+                        <li class="hover:text-secondary cursor-pointer transition-colors">Retirement Planning</li>
+                        <li class="hover:text-secondary cursor-pointer transition-colors">Risk Assessment</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="text-secondary w-4 h-4 mt-1"></i>
+                            <div>
+                                <p class="text-white">+91 98765 43210</p>
+                                <p class="text-xs text-slate-500">Mon-Fri 9am-6pm</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center text-[10px]">@</div>
+                            <p>support@rapswealth.com</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 text-center">
+                <p>&copy; 2025 RAPS Wealth Management. All rights reserved. Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+
+      const input = document.getElementById("header-search-input");
+      const dropdown = document.getElementById("header-dropdown-container");
+      const list = document.getElementById("header-dropdown-list");
+      const matchCount = document.getElementById("header-match-count");
+
+      let allFunds = [];
+
+      // 1. Fetch Funds on Load
+      fetch("/api/funds")
+        .then((res) => res.json())
+        .then((data) => {
+          allFunds = data;
+          console.log(`Loaded ${allFunds.length} funds from DB`);
+        })
+        .catch((err) => console.error("Failed to load funds:", err));
+
+      // 2. Input Listener (The Logic You Requested)
+      input.addEventListener("input", (e) => {
+        const val = e.target.value.trim();
+
+        // Logic: Show list IFF first 4 letters match
+        if (val.length < 4) {
+          hideDropdown();
+          return;
+        }
+
+        // Filter Logic: strict prefix matching as per "same first four alphabets rule"
+        const matches = allFunds.filter((fund) =>
+          fund.toLowerCase().startsWith(val.toLowerCase())
+        );
+
+        if (matches.length > 0) {
+          renderDropdown(matches, val);
+          showDropdown();
+        } else {
+          // Optional: Hide if no matches, or show "No results"
+          list.innerHTML = `<li class="px-6 py-4 text-slate-400 text-center italic">No funds found starting with "${val}"</li>`;
+          matchCount.innerText = "0 matches";
+          showDropdown();
+        }
+      });
+
+      // 3. Render List Items
+      function renderDropdown(matches, query) {
+        // Sort matches: putting ones starting with query first
+        matches.sort((a, b) => {
+          const aStarts = a.toLowerCase().startsWith(query.toLowerCase());
+          const bStarts = b.toLowerCase().startsWith(query.toLowerCase());
+          if (aStarts && !bStarts) return -1;
+          if (!bStarts && aStarts) return 1;
+          return 0;
+        });
+
+        list.innerHTML = matches
+          .map((fund) => {
+            // Highlight matching text
+            const regex = new RegExp(`(${query})`, "gi");
+            const highlighted = fund.replace(
+              regex,
+              '<span class="text-secondary font-bold">$1</span>'
+            );
+
+            return `
+                <li onclick="selectFund('${fund.replace(/'/g, "\\'")}')" 
+                    class="px-6 py-3 hover:bg-slate-50 cursor-pointer border-b border-slate-50 last:border-0 transition-colors group">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-700 font-medium group-hover:text-primary">${highlighted}</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300 group-hover:text-secondary opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0"></i>
+                    </div>
+                </li>
+                `;
+          })
+          .join("");
+
+        // Re-init icons for the arrows
+        lucide.createIcons();
+        matchCount.innerText = `${matches.length} matches found`;
+      }
+
+      function showDropdown() {
+        dropdown.classList.remove("hidden");
+      }
+
+      function hideDropdown() {
+        dropdown.classList.add("hidden");
+      }
+
+      function selectFund(name) {
+        input.value = name;
+        hideDropdown();
+        triggerHeaderSearch();
+      }
+
+      function fillSearch(name) {
+        input.value = name;
+        triggerHeaderSearch();
+      }
+
+      function triggerHeaderSearch() {
+        const query = input.value.trim();
+        if (!query) return;
+
+        // Open in new tab
+        window.open(`/fund/${encodeURIComponent(query)}`, '_blank');
+      }
+
+      // Close dropdown if clicked outside
+      document.addEventListener("click", (e) => {
+        // Check if click is outside the search container
+        if (!e.target.closest(".header_searchContainer__271j3")) {
+          hideDropdown();
+        }
+      });
+    </script>
+</body>
+</html>

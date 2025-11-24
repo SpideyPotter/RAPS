@@ -1,0 +1,443 @@
+Axis Aggressive Hybrid Fund - Gr
+Axis Arbitrage Fund - Regular Gr
+Axis Balanced Advantage Fund - Gr
+Axis Banking & PSU Debt Fund - Gr
+Axis BSE SENSEX ETF
+Axis BSE Sensex Index Fund - Gr
+Axis Business Cycles Fund - Gr
+Axis Childrens Fund - Gr(Compulsory Lock-in)
+Axis Childrens Fund - Gr(No Lock-in)
+Axis Conservative Hybrid Fund - Gr
+Axis Consumption Fund - Gr
+Axis Corporate Bond Fund - Gr
+Axis Credit Risk Fund - Gr
+Axis CRISIL IBX 50-50 Gilt Plus SDL September 2027 Index Fund - Gr
+Axis CRISIL IBX 5050 Gilt Plus SDL Jun 2028 Index Fund - Gr
+Axis CRISIL IBX AAA Bond NBFC - Jun 2027 Index Fund - Gr
+Axis CRISIL IBX SDL June 2034 Debt Index Fund - Gr
+Axis CRISIL IBX SDL June 2034 Debt Index Fund - IDCW
+Axis CRISIL IBX SDL May 2027 Index Fund - Gr
+Axis CRISIL-IBX AAA Bond Financial Services - Sep 2027 Index Fund - Gr
+Axis CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund - Gr
+Axis CRISIL-IBX Financial Services 3-6 Months Debt Index Fund - Gr
+Axis CRISIL-IBX Financial Services 3-6 Months Debt Index Fund - IDCW
+Axis Dynamic Bond Fund - Gr
+Axis ELSS Tax Saver Fund - Gr
+Axis Equity Savings Fund - Gr
+Axis ESG Integration Strategy Fund - Gr
+Axis Flexi Cap Fund - Gr
+Axis Floater Fund - Gr
+Axis Focused Fund - Gr
+Axis Gilt Fund - Gr
+Axis Global Equity Alpha Fund of Fund - Gr
+Axis Global Innovation FoF - Gr
+Axis Gold ETF - Gr
+Axis Gold Fund - Gr
+Axis Greater China Equity FoF - Gr
+Axis Income Plus Arbitrage Active FOF - A IDCW
+Axis Income Plus Arbitrage Active FOF - Gr
+Axis Income Plus Arbitrage Active FOF - HY IDCW
+Axis Income Plus Arbitrage Active FOF - IDCW
+Axis Income Plus Arbitrage Active FOF - M IDCW
+Axis Income Plus Arbitrage Active FOF - Q IDCW
+Axis Income Plus Arbitrage Passive FoF - Gr
+Axis Income Plus Arbitrage Passive FoF - IDCW
+Axis India Manufacturing Fund - Gr
+Axis Innovation Fund - Gr
+Axis Large & Mid Cap Fund - Gr
+Axis Large & Mid Cap Fund - IDCW
+Axis Large Cap Fund - Gr
+Axis Large Cap Fund - IDCW
+Axis Liquid Fund - Gr
+Axis Long Duration Fund - Gr
+Axis MidCap Fund - Gr
+Axis Momentum Fund - Gr
+Axis Money Market Fund - Gr
+Axis Multi Asset Allocation Fund - Gr
+Axis Multi Factor Passive FOF - Gr
+Axis Multi Factor Passive FOF - IDCW
+Axis Multi-Asset Active FoF - Gr
+Axis Multi-Asset Active FoF - IDCW
+Axis Multicap Fund - Regular Gr
+Axis Nifty 100 Index Fund - Gr
+Axis NIFTY 50 ETF - Gr
+Axis Nifty 50 Index Fund - Gr
+Axis Nifty 500 Index Fund - Gr
+Axis Nifty AAA Bond Financial Services - Mar 2028 Index Fund - Gr
+Axis NIFTY Bank ETF - Gr
+Axis Nifty Bank Index Fund - Gr
+Axis Nifty G-Sec September 2032 Index Fund - Gr
+Axis NIFTY Healthcare ETF - Gr
+Axis NIFTY India Consumption ETF
+Axis NIFTY IT ETF - Gr
+Axis Nifty IT Index Fund - Gr
+Axis Nifty Midcap 50 Index Fund - Gr
+Axis Nifty Next 50 Index Fund - Gr
+Axis Nifty SDL September 2026 Debt Index Fund - Gr
+Axis Nifty Smallcap 50 Index Fund - Gr
+Axis Nifty500 Momentum 50 ETF - Gr
+Axis Nifty500 Momentum 50 Index Fund - Gr
+Axis Nifty500 Quality 50 Index Fund - Gr
+Axis Nifty500 Value 50 ETF - Gr
+Axis Nifty500 Value 50 Index Fund - Gr
+Axis Overnight Fund - Gr
+Axis Quant Fund - Gr
+Axis Retirement Fund - Aggressive Plan - Gr
+Axis Retirement Fund - Aggressive Plan - IDCW
+Axis Retirement Fund - Conservative Plan - Gr
+Axis Retirement Fund - Conservative Plan - IDCW
+Axis Retirement Fund - Dynamic Plan - Gr
+Axis Retirement Fund - Dynamic Plan - IDCW
+Axis S&P 500 ETF FoF - Gr
+Axis Services Opportunities Fund - Gr
+Axis Services Opportunities Fund - IDCW
+Axis Short Duration Fund - Gr
+Axis Short Duration Fund - Retail Gr
+Axis Silver ETF - Gr
+Axis Silver FoF - Gr
+Axis Small Cap Fund - Gr
+Axis Strategic Bond Fund - Gr
+Axis Treasury Advantage Fund - Gr
+Axis Ultra Short Duration Fund - Gr
+Axis US Specific Equity Passive FOF - Gr
+Axis US Specific Equity Passive FOF - IDCW
+Axis US Specific Treasury Dynamic Debt Passive ETF Fund of Fund - Gr
+Axis US Specific Treasury Dynamic Debt Passive ETF Fund of Fund - IDCW
+Axis Value Fund - Gr
+Edelweiss Aggressive Hybrid Fund - Regular Plan - Gr
+Edelweiss Arbitrage Fund - Gr
+Edelweiss ASEAN Equity Off-shore - Gr
+Edelweiss Balanced Advantage Fund - Gr
+Edelweiss Banking And PSU Debt Fund - Gr
+Edelweiss BSE Capital Markets & Insurance ETF - Gr
+Edelweiss BSE Internet Economy Index Fund - Gr
+Edelweiss BSE Internet Economy Index Fund - IDCW
+Edelweiss BSE Sensex ETF - Gr
+Edelweiss Business Cycle Fund - Gr
+Edelweiss Consumption Fund - Gr
+Edelweiss CRISIL IBX 50-50 Gilt Plus SDL April 2037 Index Fund - Gr
+Edelweiss CRISIL IBX 50-50 Gilt Plus SDL June 2027 Index Fund - Gr
+Edelweiss CRISIL IBX 50-50 Gilt Plus SDL Sep 2028 Index Fund - Gr
+Edelweiss CRISIL IBX 50-50 Gilt Plus SDL Short Duration Index Fund - Gr
+Edelweiss CRISIL IBX AAA Financial Services Bond - Jan 2028 Index Fund - Gr
+Edelweiss CRISIL PSU Plus SDL 50-50 Oct 2025 Index Fund - Gr
+Edelweiss CRISIL-IBX AAA Bond NBFC-HFC - Jun 2027 Index Fund - Gr
+Edelweiss E-track - Nifty - Gr
+Edelweiss ELSS Tax saver Fund - Gr
+Edelweiss Emerging Markets Opportunities Equity Offshore Fund - Gr
+Edelweiss Equity Savings Fund - Regular - Gr
+Edelweiss Europe Dynamic Equity Offshore Fund - Gr
+Edelweiss Flexi Cap Fund - Gr
+Edelweiss Focused Fund - Gr
+Edelweiss Gold and Silver ETF FoF - Gr
+Edelweiss Gold ETF
+Edelweiss Government Securities Fund - Gr
+Edelweiss Greater China Equity Off-shore Fund - Reg Gr
+Edelweiss Income Plus Arbitrage Active FoF - Gr
+Edelweiss Income Plus Arbitrage Active FoF - IDCW
+Edelweiss Large & Mid Cap Fund - Regular Gr
+Edelweiss Large Cap Fund - Gr
+Edelweiss Liquid Fund - Regular Plan - Growth
+Edelweiss Low Duration Fund - Gr
+Edelweiss Low Duration Fund - IDCW
+Edelweiss Mid Cap Fund - Regular Gr
+Edelweiss Money Market Fund - Gr
+Edelweiss MSCI India Domestic & World Healthcare 45 Index Fund - Gr
+Edelweiss Multi Asset Allocation Fund - Gr
+Edelweiss Multi Asset Omni FoF - Gr
+Edelweiss Multi Asset Omni FoF - IDCW
+Edelweiss Multi Cap Fund - Gr
+Edelweiss Nifty 100 Quality 30 Index Fund - Gr
+Edelweiss Nifty 1D Rate Liquid ETF - Gr
+Edelweiss Nifty 50 ETF - Gr
+Edelweiss Nifty 50 Index Fund - Gr
+Edelweiss Nifty 50 Index Fund(ODL)
+Edelweiss Nifty Alpha Low Volatility 30 Index Fund - Gr
+Edelweiss Nifty Bank ETF
+Edelweiss NIFTY Large Mid Cap 250 Index Fund - Gr
+Edelweiss Nifty LargeMidcap 250 ETF - Gr
+Edelweiss Nifty Midcap150 Momentum 50 Index Fund - Gr
+Edelweiss Nifty Next 50 Index Fund - Gr
+Edelweiss Nifty PSU Bond Plus SDL Apr 2026 50-50 Index Fund - Gr
+Edelweiss Nifty PSU Bond Plus SDL Apr 2027 50-50 Index Fund - Gr
+Edelweiss Nifty Smallcap 250 Index Fund - Gr
+Edelweiss Nifty500 Multicap Momentum Quality 50 ETF - Gr
+Edelweiss Nifty500 Multicap Momentum Quality 50 Index Fund - Gr
+Edelweiss Overnight Fund - Gr
+Edelweiss Recently Listed IPO Fund - Gr
+Edelweiss Silver ETF
+Edelweiss Small Cap Fund - Gr
+Edelweiss Technology Fund - Gr
+Edelweiss US Technology Equity Fund of Fund - Gr
+Edelweiss US Value Equity Off-shore Fund- Reg Gr
+HDFC Arbitrage Fund - Retail Gr
+HDFC Arbitrage Fund - Wholesale Gr
+HDFC Balanced Advantage Fund Gr
+HDFC Banking & Financial Services Fund - Gr
+HDFC Banking and PSU Debt Fund - Gr
+HDFC BSE 500 ETF - Gr
+HDFC BSE 500 Index Fund - Gr
+HDFC BSE India Sector Leaders Index Fund - Gr
+HDFC BSE India Sector Leaders Index Fund - IDCW
+HDFC BSE SENSEX ETF - Gr
+HDFC BSE Sensex Index Fund
+HDFC BSE Sensex Index Fund (Post Addendum)
+HDFC Business Cycle Fund - Gr
+HDFC Childrens Fund(Lock In)
+HDFC Corporate Bond Fund - Gr
+HDFC Credit Risk Debt Fund - Gr
+HDFC CRISIL-IBX Financial Services 3-6 Months Debt Index Fund - Gr
+HDFC Defence Fund - Gr
+HDFC Developed World Overseas Equity Passive FOF - Gr
+HDFC Developed World Overseas Equity Passive FOF - IDCW
+HDFC Diversified Equity All Cap Active FOF - Gr
+HDFC Diversified Equity All Cap Active FOF - IDCW
+HDFC Dividend Yield Fund - Gr
+HDFC Dynamic Debt Fund - Gr
+HDFC ELSS Tax saver - Gr
+HDFC Equity Savings Fund - Gr
+HDFC Flexi Cap Fund - Gr
+HDFC Floating Rate Debt Fund - Gr
+HDFC Focused Fund - Gr
+HDFC Focused Fund - IDCW
+HDFC Gilt Fund - Gr
+HDFC Gold ETF
+HDFC Gold ETF Fund of Fund - Gr
+HDFC Housing Opportunities Fund - Gr
+HDFC Hybrid Debt Fund - Gr
+HDFC Hybrid Equity Fund - Gr
+HDFC Income Fund Gr
+HDFC Income Plus Arbitrage Active Fund of Funds Regular - Gr
+HDFC Income Plus Arbitrage Active Fund of Funds Regular - IDCW
+HDFC Infrastructure Fund - Gr
+HDFC Innovation Fund - Gr
+HDFC Innovation Fund - IDCW
+HDFC Large and Mid Cap Fund - Gr
+HDFC Large Cap Fund - Gr
+HDFC Liquid Fund - Gr
+HDFC Long Duration Debt Fund - Gr
+HDFC Low Duration Fund - Gr
+HDFC Manufacturing Fund - Gr
+HDFC Medium Term Debt Fund - Gr
+HDFC Mid Cap Fund - Gr
+HDFC Mid Cap Fund - IDCW
+HDFC MNC Fund - Gr
+HDFC Money Market Fund - Gr
+HDFC Multi Asset Active FoF - Gr
+HDFC Multi Asset Active FoF - IDCW
+HDFC Multi Cap Fund - Gr
+HDFC Multi-Asset Allocation Fund - Gr
+HDFC Multi-Asset Allocation Fund - IDCW
+HDFC NIFTY 100 Equal Weight Index Fund - Gr
+HDFC NIFTY 100 ETF - Gr
+HDFC Nifty 100 Index Fund - Gr
+HDFC NIFTY 1D RATE LIQUID ETF - Growth
+HDFC NIFTY 50 ETF - Gr
+HDFC Nifty 50 Index Fund
+HDFC Nifty 50 Index Fund (Old)
+HDFC NIFTY Bank ETF - Gr
+HDFC NIFTY G-Sec Apr 2029 Index Fund - Gr
+HDFC Nifty G-sec Dec 2026 Index Fund - Regular Gr
+HDFC Nifty G-Sec July 2031 Index Fund - Regular Gr
+HDFC Nifty G-Sec Jun 2027 Index - Gr
+HDFC NIFTY G-Sec Jun 2036 Index Fund - Gr
+HDFC Nifty G-Sec Sep 2032 Index - Gr
+HDFC NIFTY Growth Sectors 15 ETF - Gr
+HDFC Nifty India Digital Index Fund - Gr
+HDFC NIFTY IT ETF - Gr
+HDFC Nifty LargeMidcap 250 Index Fund - Gr
+HDFC NIFTY Midcap 150 ETF - Gr
+HDFC NIFTY Midcap 150 Index Fund - Gr
+HDFC NIFTY NEXT 50 ETF - Gr
+HDFC NIFTY Next 50 Index Fund - Gr
+HDFC NIFTY Private Bank ETF - Gr
+HDFC Nifty PSU Bank ETF
+HDFC NIFTY Realty Index Fund - Gr
+HDFC Nifty SDL Oct 2026 Index Fund - Gr
+HDFC NIFTY SDL Plus G-Sec Jun 2027 40-60 Index Fund - Gr
+HDFC Nifty SDL Sep 2026 V1 Index Fund - Gr
+HDFC NIFTY Smallcap 250 ETF - Gr
+HDFC NIFTY Smallcap 250 Index Fund - Gr
+HDFC Nifty Top 20 Equal Weight Index Fund - Gr
+HDFC NIFTY100 Low Volatility 30 ETF - Gr
+HDFC NIFTY100 Low Volatility 30 Index Fund - Gr
+HDFC NIFTY100 Quality 30 ETF - Gr
+HDFC Nifty100 Quality 30 Index Fund - Gr
+HDFC NIFTY200 Momentum 30 ETF - Gr
+HDFC NIFTY200 Momentum 30 Index Fund - Gr
+HDFC NIFTY50 Equal Weight Index Fund - Gr
+HDFC NIFTY50 Value 20 ETF - Gr
+HDFC Nifty500 Multicap 50-25-25 Index Fund - Gr
+HDFC Non-Cyclical Consumer Fund - Gr
+HDFC Overnight Fund - Gr
+HDFC Pharma And Healthcare Fund - Gr
+HDFC Retirement Savings Fund - Equity - Gr
+HDFC Retirement Savings Fund - Hybrid Debt - Gr
+HDFC Retirement Savings Fund - Hybrid Equity - Gr
+HDFC Short Term Debt Fund - Gr
+HDFC Silver ETF - Gr
+HDFC Silver ETF Fund of Fund - Gr
+HDFC Small Cap Fund - Gr
+HDFC Technology Fund - Gr
+HDFC Transportation and Logistics Fund - Gr
+HDFC Ultra Short Term Fund - Gr
+HDFC Value Fund - Gr
+HDFC Value Fund - IDCW
+ICICI Pru Nifty EV & New Age Automotive ETF - Gr
+ICICI Prudential Active Momentum Fund - Gr
+ICICI Prudential Active Momentum Fund - IDCW
+ICICI Prudential All Seasons Bond Fund - Gr
+ICICI Prudential Asset Allocator Fund - Gr (FOF)
+ICICI Prudential Balanced Advantage Fund - Regular Gr
+ICICI Prudential Banking & PSU Debt Fund - Gr
+ICICI Prudential Banking and Financial Services Fund - Gr
+ICICI Prudential Bharat 22 ETF FFO - Retail Individual Investors
+ICICI Prudential Bharat 22 ETF FFO 2 - Gr
+ICICI Prudential BHARAT 22 FOF
+ICICI Prudential Bharat Consumption Fund - Gr
+ICICI Prudential Bond Fund - Gr
+ICICI Prudential BSE 500 ETF
+ICICI Prudential BSE 500 ETF FOF - Gr
+ICICI Prudential BSE Liquid Rate ETF - Growth
+ICICI Prudential BSE Midcap Select ETF
+ICICI Prudential BSE Sensex ETF - Gr
+ICICI Prudential BSE Sensex Index Fund - Gr
+ICICI Prudential Business Cycle Fund - Gr
+ICICI Prudential Childrens Fund
+ICICI Prudential Commodities Fund - Gr
+ICICI Prudential Conglomerate Fund - Gr
+ICICI Prudential Conglomerate Fund - IDCW
+ICICI Prudential Constant Maturity Gilt Fund - Gr
+ICICI Prudential Corporate Bond Fund - Gr
+ICICI Prudential Credit Risk Fund - Gr
+ICICI Prudential CRISIL-IBX AAA Bond Financial Services Index - Dec 2026 Fund - Gr
+ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund - Gr
+ICICI Prudential CRISIL-IBX Financial Services 3-6 Months Debt Index Fund - IDCW
+ICICI Prudential Debt Management Fund - Gr (FOF)
+ICICI Prudential Dividend Yield Equity Fund - Gr
+ICICI Prudential ELSS Tax Saver Fund - Regular Gr
+ICICI Prudential Energy Opportunities Fund - Gr
+ICICI Prudential Equity & Debt Fund - Regular Gr
+ICICI Prudential Equity - Arbitrage Fund - Regular Gr
+ICICI Prudential Equity Minimum Variance Fund - Gr
+ICICI Prudential Equity Savings Fund - Gr
+ICICI Prudential ESG Exclusionary Strategy Fund - Gr
+ICICI Prudential Exports and Services Fund - Gr
+ICICI Prudential Flexicap Fund - Gr
+ICICI Prudential Floating Interest Fund - Gr
+ICICI Prudential Floating Interest Fund Plan C - Gr
+ICICI Prudential FMCG Fund-Gr
+ICICI Prudential Focused Equity Fund - Retail Gr
+ICICI Prudential Gilt Fund - Regular Gr
+ICICI Prudential Global Advantage Fund - Gr (FOF)
+ICICI Prudential Global Stable Equity Fund - Gr (FOF)
+ICICI Prudential Gold ETF
+ICICI Prudential Housing Opportunities Fund - Gr
+ICICI Prudential Income Plus Arbitrage Active FOF - Gr (FOF)
+ICICI Prudential Income Plus Arbitrage Active FOF - IDCW (FOF)
+ICICI Prudential India Equity FOF - Gr
+ICICI Prudential India Opportunities Fund - Gr
+ICICI Prudential Infrastructure Fund - Gr
+ICICI Prudential Innovation Fund - Gr
+ICICI Prudential Large & Mid Cap Fund - Gr
+ICICI Prudential Large Cap Fund - Gr
+ICICI Prudential Large Cap Fund - IDCW
+ICICI Prudential Liquid Fund - Gr
+ICICI Prudential Long Term Bond Fund - Gr
+ICICI Prudential Manufacturing Fund - Gr
+ICICI Prudential Medium Term Bond Fund - Gr
+ICICI Prudential MidCap Fund - Gr
+ICICI Prudential MNC Fund - Gr
+ICICI Prudential Money Market Fund - Gr
+ICICI Prudential Multi-Asset Fund - Gr
+ICICI Prudential Multicap Fund - Gr
+ICICI Prudential NASDAQ 100 Index Fund - Gr
+ICICI Prudential Nifty 10 yr Benchmark G-Sec ETF - Gr
+ICICI Prudential Nifty 100 ETF - Gr
+ICICI Prudential Nifty 100 Low Volatility 30 ETF
+ICICI Prudential Nifty 100 Low Volatility 30 ETF FOF - Gr
+ICICI Prudential Nifty 200 Momentum 30 ETF - Gr
+ICICI Prudential Nifty 200 Momentum 30 Index Fund - Gr
+ICICI Prudential Nifty 200 Quality 30 ETF
+ICICI Prudential Nifty 5 yr Benchmark G-SEC ETF - Gr
+ICICI Prudential Nifty 50 ETF - Gr
+ICICI Prudential Nifty 50 Index Fund - Gr
+ICICI Prudential Nifty 500 Index Fund - Gr
+ICICI Prudential Nifty Alpha Low - Volatility 30 ETF FOF - Gr
+ICICI Prudential Nifty Alpha Low - Volatility 30 ETF FOF - IDCW
+ICICI Prudential Nifty Alpha Low- Volatility 30 ETF - Gr
+ICICI Prudential Nifty Auto ETF
+ICICI Prudential Nifty Auto Index Fund - Gr
+ICICI Prudential Nifty Bank ETF - Gr
+ICICI Prudential Nifty Bank Index Fund - Gr
+ICICI Prudential Nifty Commodities ETF - Gr
+ICICI Prudential Nifty EV & New Age Automotive ETF FoF - Gr
+ICICI Prudential Nifty EV & New Age Automotive ETF FoF - IDCW
+ICICI Prudential Nifty Financial Services Ex-Bank ETF - Gr
+ICICI Prudential Nifty FMCG ETF - Gr
+ICICI Prudential Nifty G-Sec Dec 2030 Index Fund - Gr
+ICICI Prudential Nifty Healthcare ETF - Gr
+ICICI Prudential Nifty India Consumption ETF - Gr
+ICICI Prudential Nifty Infrastructure ETF - Gr
+ICICI Prudential Nifty IT ETF - Gr
+ICICI Prudential Nifty IT Index Fund - Gr
+ICICI Prudential Nifty LargeMidcap 250 Index Fund - Gr
+ICICI Prudential Nifty Metal ETF
+ICICI Prudential Nifty Midcap 150 ETF - Gr
+ICICI Prudential Nifty Midcap 150 Index Fund - Gr
+ICICI Prudential Nifty Next 50 ETF
+ICICI Prudential Nifty Next 50 Index Fund - Gr
+ICICI Prudential Nifty Oil & Gas ETF
+ICICI Prudential Nifty Pharma Index Fund - Gr
+ICICI Prudential Nifty Private Bank ETF
+ICICI Prudential Nifty Private Bank Index Fund - Gr
+ICICI Prudential Nifty Private Bank Index Fund - IDCW
+ICICI Prudential Nifty PSU Bank ETF
+ICICI Prudential Nifty PSU Bond Plus SDL Sep 2027 40:60 Index Fund - Gr
+ICICI Prudential Nifty SDL Dec 2028 Index Fund - Gr
+ICICI Prudential Nifty SDL Sep 2026 Index Fund - Gr
+ICICI Prudential Nifty SDL Sep 2026 Index Fund - IDCW Yearly
+ICICI Prudential Nifty SDL Sep 2027 Index Fund - Gr
+ICICI Prudential Nifty Smallcap 250 Index Fund - Gr
+ICICI Prudential Nifty Top 15 Equal Weight ETF - Gr
+ICICI Prudential Nifty Top 15 Equal Weight Index Fund - Gr
+ICICI Prudential Nifty Top 15 Equal Weight Index Fund - IDCW
+ICICI Prudential Nifty200 Quality 30 Index Fund - Gr
+ICICI Prudential Nifty200 Quality 30 Index Fund - IDCW
+ICICI Prudential Nifty200 Value 30 ETF - Gr
+ICICI Prudential Nifty200 Value 30 Index Fund - Gr
+ICICI Prudential Nifty50 Equal Weight Index Fund - Gr
+ICICI Prudential Nifty50 Value 20 ETF
+ICICI Prudential Nifty50 Value 20 Index Fund - Gr
+ICICI Prudential Overnight Fund - Gr
+ICICI Prudential Passive Multi-Asset FoF - Gr
+ICICI Prudential Passive Strategy Fund - Gr (FOF)
+ICICI Prudential Pharma Healthcare And Diagnostics (P.H.D) Fund - Gr
+ICICI Prudential PSU Equity Fund - Gr
+ICICI Prudential Quality Fund - Gr
+ICICI Prudential Quality Fund - IDCW
+ICICI Prudential Quant Fund - Gr
+ICICI Prudential Regular Gold Savings Fund - Gr (FOF)
+ICICI Prudential Regular Savings Fund Gr
+ICICI Prudential Retirement Fund - Hybrid Aggressive Plan - Gr
+ICICI Prudential Retirement Fund - Hybrid Aggressive Plan - IDCW
+ICICI Prudential Retirement Fund - Hybrid Conservative Plan - Gr
+ICICI Prudential Retirement Fund - Hybrid Conservative Plan - IDCW
+ICICI Prudential Retirement Fund - Pure Debt Plan - Gr
+ICICI Prudential Retirement Fund - Pure Debt Plan - IDCW
+ICICI Prudential Retirement Fund - Pure Equity Plan - Gr
+ICICI Prudential Retirement Fund - Pure Equity Plan - IDCW
+ICICI Prudential Rural Opportunities Fund - Gr
+ICICI Prudential Savings Fund - Gr
+ICICI Prudential Short Term Fund - Gr
+ICICI Prudential Silver ETF - Gr
+ICICI Prudential Silver ETF FOF - Gr
+ICICI Prudential Smallcap Fund - Gr
+ICICI Prudential Strategic Metal and Energy Fund of Fund - Gr
+ICICI Prudential Technology Gr
+ICICI Prudential Thematic Advantage Fund - Gr (FOF)
+ICICI Prudential Transportation and Logistics Fund - Gr
+ICICI Prudential Ultra Short Term Fund - Gr
+ICICI Prudential US Bluechip Equity Fund - Gr
+ICICI Prudential Value Fund - Gr
+ICICI Prudential Value Fund - IDCW

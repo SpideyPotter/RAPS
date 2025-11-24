@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAPS Calculator - Compare Funds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0f172a',
+              secondary: '#059669',
+              accent: '#0d9488',
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Header (Simplified) -->
+    <!-- Header (Standardized) -->
+    <header class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center h-auto md:h-20 py-4 md:py-0 gap-4 md:gap-0">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="/static/logo.jpg" alt="RAPS Wealth" class="h-10 w-10 rounded-full object-cover">
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary tracking-tight">RAPS<span class="text-secondary">Wealth</span></h1>
+                        <p class="text-xs text-slate-500 font-medium tracking-widest">FINANCIAL SERVICES</p>
+                    </div>
+                </a>
+
+                <nav class="flex items-center gap-4 md:gap-8 overflow-x-auto max-w-full pb-2 md:pb-0 w-full md:w-auto justify-center md:justify-end">
+                    <a href="/" class="text-slate-600 hover:text-primary text-sm font-semibold whitespace-nowrap transition-colors duration-200">Home</a>
+                    <a href="/calculator" class="text-secondary border-b-2 border-secondary pb-1 text-sm font-semibold whitespace-nowrap transition-colors duration-200">RAPS Calculator</a>
+                    <a href="/growth-simulator" class="text-slate-600 hover:text-primary text-sm font-semibold whitespace-nowrap transition-colors duration-200">Growth Calculator</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-primary mb-4">Fund Comparison Calculator</h1>
+                <p class="text-slate-600">Select up to 3 mutual funds to analyze their performance, overlap, and future predictions.</p>
+            </div>
+
+            <!-- Selection Area -->
+            <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 mb-12">
+                <form id="compare-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Fund 1 -->
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Fund 1</label>
+                            <input type="text" id="fund1" name="fund1" placeholder="Search Fund 1..." autocomplete="off"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
+                            <div id="dropdown-fund1" class="absolute top-full left-0 w-full mt-1 bg-white rounded-lg shadow-xl border border-slate-100 hidden z-30 max-h-60 overflow-y-auto custom-scrollbar"></div>
+                        </div>
+
+                        <!-- Fund 2 -->
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Fund 2</label>
+                            <input type="text" id="fund2" name="fund2" placeholder="Search Fund 2..." autocomplete="off"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
+                            <div id="dropdown-fund2" class="absolute top-full left-0 w-full mt-1 bg-white rounded-lg shadow-xl border border-slate-100 hidden z-30 max-h-60 overflow-y-auto custom-scrollbar"></div>
+                        </div>
+
+                        <!-- Fund 3 -->
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Fund 3 (Optional)</label>
+                            <input type="text" id="fund3" name="fund3" placeholder="Search Fund 3..." autocomplete="off"
+                                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
+                            <div id="dropdown-fund3" class="absolute top-full left-0 w-full mt-1 bg-white rounded-lg shadow-xl border border-slate-100 hidden z-30 max-h-60 overflow-y-auto custom-scrollbar"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center pt-4">
+                        <button type="submit" class="bg-secondary hover:bg-emerald-600 text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg shadow-emerald-900/20 transition-all flex items-center gap-2">
+                            <i data-lucide="bar-chart-2" class="w-5 h-5"></i> Analyze Funds
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results Container -->
+            <div id="results-area" class="hidden space-y-12">
+                
+                <!-- 1. Comparison Table -->
+                <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                        <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                            <i data-lucide="table" class="w-5 h-5 text-secondary"></i> Overview
+                        </h3>
+                    </div>
+                    <div class="p-6 overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-200">
+                                    <th class="py-3 px-4 text-slate-500 font-medium w-1/4">Metric</th>
+                                    <th class="py-3 px-4 font-bold text-primary" id="th-fund1">Fund 1</th>
+                                    <th class="py-3 px-4 font-bold text-primary" id="th-fund2">Fund 2</th>
+                                    <th class="py-3 px-4 font-bold text-primary" id="th-fund3">Fund 3</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comparison-tbody" class="text-sm">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 2. Combined History Chart -->
+                <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                        <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-secondary"></i> Historical Analysis (NAV & Log Returns)
+                        </h3>
+                    </div>
+                    <div class="p-6 flex justify-center bg-white">
+                        <img id="history-chart-img" class="max-w-full h-auto rounded-lg border border-slate-100" alt="Historical Analysis Chart" />
+                    </div>
+                </section>
+
+                <!-- 3. Predictions -->
+                <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                        <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                            <i data-lucide="zap" class="w-5 h-5 text-secondary"></i> AI Predictions (NAV & Log Returns)
+                        </h3>
+                    </div>
+                    <div class="p-6 flex justify-center bg-white">
+                        <img id="pred-chart-img" class="max-w-full h-auto rounded-lg border border-slate-100" alt="Prediction Chart" />
+                    </div>
+                </section>
+
+                <!-- 4. Intersection Analysis -->
+                <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                        <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                            <i data-lucide="git-merge" class="w-5 h-5 text-secondary"></i> Intersection Analysis (Common Holdings)
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <div id="intersection-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Sector Analysis -->
+                <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                        <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                            <i data-lucide="pie-chart" class="w-5 h-5 text-secondary"></i> Sector Allocation
+                        </h3>
+                    </div>
+                    <div class="p-6 flex justify-center">
+                         <div id="sector-content" class="w-full flex justify-center">
+                             <img id="sector-chart-img" class="max-w-full h-auto rounded-lg" alt="Sector Pie Charts" />
+                         </div>
+                    </div>
+                </section>
+
+                <!-- 6. Rolling Correlation Matrix -->
+                <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                        <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                            <i data-lucide="activity" class="w-5 h-5 text-secondary"></i> Rolling Correlation Matrix
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-1">How correlation changes over time (30-day window)</p>
+                    </div>
+                    <div class="p-6 flex justify-center bg-white">
+                        <img id="rolling-corr-img" class="max-w-full h-auto rounded-lg border border-slate-100" alt="Rolling Correlation Chart" />
+                    </div>
+                </section>
+
+                <!-- 7. Heatmap & Diversity -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                            <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                                <i data-lucide="grid" class="w-5 h-5 text-secondary"></i> Correlation Heatmap
+                            </h3>
+                        </div>
+                        <div class="p-6 flex justify-center">
+                            <img id="heatmap-img" class="max-w-full h-auto rounded-lg" alt="Correlation Heatmap" />
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100">
+                            <h3 class="font-bold text-lg text-primary flex items-center gap-2">
+                                <i data-lucide="shield" class="w-5 h-5 text-secondary"></i> Diversity Score
+                            </h3>
+                        </div>
+                        <div class="p-8 flex flex-col items-center justify-center h-full">
+                            <div id="diversity-score-circle" class="w-32 h-32 rounded-full border-8 border-slate-100 flex items-center justify-center mb-4 relative">
+                                <span id="diversity-score-val" class="text-3xl font-bold text-primary">--</span>
+                            </div>
+                            <p id="diversity-msg" class="text-center text-slate-500">Select funds to calculate portfolio diversity.</p>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            
+            <!-- Loading State -->
+            <div id="loading-area" class="hidden py-20 text-center">
+                <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-secondary mx-auto mb-4"></div>
+                <p class="text-slate-500 text-lg">Crunching numbers & running AI models...</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // --- Autocomplete Logic (Reusable) ---
+        let allFunds = [];
+        fetch("/api/funds").then(r => r.json()).then(d => allFunds = d);
+
+        function setupAutocomplete(inputId, dropdownId) {
+            const input = document.getElementById(inputId);
+            const dropdown = document.getElementById(dropdownId);
+
+            input.addEventListener("input", (e) => {
+                const val = e.target.value.trim();
+                if (val.length < 4) {
+                    dropdown.classList.add("hidden");
+                    return;
+                }
+                const matches = allFunds.filter(f => f.toLowerCase().startsWith(val.toLowerCase()));
+                
+                if (matches.length > 0) {
+                    dropdown.innerHTML = matches.map(f => `
+                        <div class="px-4 py-2 hover:bg-slate-50 cursor-pointer text-sm border-b border-slate-50 last:border-0" 
+                             onclick="selectItem('${inputId}', '${dropdownId}', '${f.replace(/'/g, "\\'")}')">
+                            ${f}
+                        </div>
+                    `).join("");
+                    dropdown.classList.remove("hidden");
+                } else {
+                    dropdown.innerHTML = `<div class="px-4 py-2 text-slate-400 text-sm italic">No matches</div>`;
+                    dropdown.classList.remove("hidden");
+                }
+            });
+
+            // Close on click outside
+            document.addEventListener("click", (e) => {
+                if (!e.target.closest(`#${inputId}`) && !e.target.closest(`#${dropdownId}`)) {
+                    dropdown.classList.add("hidden");
+                }
+            });
+        }
+
+        function selectItem(inputId, dropdownId, value) {
+            document.getElementById(inputId).value = value;
+            document.getElementById(dropdownId).classList.add("hidden");
+        }
+
+        setupAutocomplete("fund1", "dropdown-fund1");
+        setupAutocomplete("fund2", "dropdown-fund2");
+        setupAutocomplete("fund3", "dropdown-fund3");
+
+        // --- Form Submission ---
+        document.getElementById("compare-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const f1 = document.getElementById("fund1").value.trim();
+            const f2 = document.getElementById("fund2").value.trim();
+            const f3 = document.getElementById("fund3").value.trim();
+            
+            if (!f1 || !f2) {
+                alert("Please select at least 2 funds to compare.");
+                return;
+            }
+
+            const funds = [f1, f2];
+            if (f3) funds.push(f3);
+
+            // Show Loading
+            document.getElementById("results-area").classList.add("hidden");
+            document.getElementById("loading-area").classList.remove("hidden");
+
+            try {
+                const res = await fetch("/api/compare", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ funds })
+                });
+                
+                if (!res.ok) throw new Error(await res.text());
+                
+                const data = await res.json();
+                renderResults(data);
+                
+                document.getElementById("loading-area").classList.add("hidden");
+                document.getElementById("results-area").classList.remove("hidden");
+                
+            } catch (err) {
+                alert("Error: " + err.message);
+                document.getElementById("loading-area").classList.add("hidden");
+            }
+        });
+
+        function renderResults(data) {
+            // 1. Table Headers
+            const funds = data.funds;
+            document.getElementById("th-fund1").innerText = funds[0].name;
+            document.getElementById("th-fund2").innerText = funds[1].name;
+            document.getElementById("th-fund3").innerText = funds[2] ? funds[2].name : "-";
+
+            // 2. Table Body
+            const tbody = document.getElementById("comparison-tbody");
+            tbody.innerHTML = `
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">NAV</td>
+                    <td class="py-3 px-4">${funds[0].nav}</td>
+                    <td class="py-3 px-4">${funds[1].nav}</td>
+                    <td class="py-3 px-4">${funds[2] ? funds[2].nav : "-"}</td>
+                </tr>
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">AUM</td>
+                    <td class="py-3 px-4">${funds[0].aum}</td>
+                    <td class="py-3 px-4">${funds[1].aum}</td>
+                    <td class="py-3 px-4">${funds[2] ? funds[2].aum : "-"}</td>
+                </tr>
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">Category</td>
+                    <td class="py-3 px-4 text-xs">${funds[0].category}</td>
+                    <td class="py-3 px-4 text-xs">${funds[1].category}</td>
+                    <td class="py-3 px-4 text-xs">${funds[2] ? funds[2].category : "-"}</td>
+                </tr>
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">Benchmark</td>
+                    <td class="py-3 px-4 text-xs">${funds[0].benchmark}</td>
+                    <td class="py-3 px-4 text-xs">${funds[1].benchmark}</td>
+                    <td class="py-3 px-4 text-xs">${funds[2] ? funds[2].benchmark : "-"}</td>
+                </tr>
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">Age</td>
+                    <td class="py-3 px-4">${funds[0].age}</td>
+                    <td class="py-3 px-4">${funds[1].age}</td>
+                    <td class="py-3 px-4">${funds[2] ? funds[2].age : "-"}</td>
+                </tr>
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">Expense Ratio</td>
+                    <td class="py-3 px-4">${funds[0].expense_ratio}</td>
+                    <td class="py-3 px-4">${funds[1].expense_ratio}</td>
+                    <td class="py-3 px-4">${funds[2] ? funds[2].expense_ratio : "-"}</td>
+                </tr>
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">Exit Load</td>
+                    <td class="py-3 px-4 text-xs">${funds[0].exit_load}</td>
+                    <td class="py-3 px-4 text-xs">${funds[1].exit_load}</td>
+                    <td class="py-3 px-4 text-xs">${funds[2] ? funds[2].exit_load : "-"}</td>
+                </tr>
+                <tr class="border-b border-slate-100">
+                    <td class="py-3 px-4 font-medium text-slate-600">Manager</td>
+                    <td class="py-3 px-4 text-xs">${funds[0].manager}</td>
+                    <td class="py-3 px-4 text-xs">${funds[1].manager}</td>
+                    <td class="py-3 px-4 text-xs">${funds[2] ? funds[2].manager : "-"}</td>
+                </tr>
+            `;
+
+            // 3. Images
+            if (data.charts.history_combined) document.getElementById("history-chart-img").src = "data:image/png;base64," + data.charts.history_combined;
+            if (data.charts.predictions_combined) document.getElementById("pred-chart-img").src = "data:image/png;base64," + data.charts.predictions_combined;
+            if (data.charts.heatmap) document.getElementById("heatmap-img").src = "data:image/png;base64," + data.charts.heatmap;
+            if (data.charts.sector_pie) document.getElementById("sector-chart-img").src = "data:image/png;base64," + data.charts.sector_pie;
+            if (data.charts.rolling_correlation) document.getElementById("rolling-corr-img").src = "data:image/png;base64," + data.charts.rolling_correlation;
+
+
+            // 4. Intersection
+            const intersectionDiv = document.getElementById("intersection-content");
+            if (data.intersection && data.intersection.length > 0) {
+                intersectionDiv.innerHTML = data.intersection.map(stock => `
+                    <div class="bg-slate-50 p-3 rounded border border-slate-200 text-sm font-medium text-slate-700 flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-secondary"></div> ${stock}
+                    </div>
+                `).join("");
+            } else {
+                intersectionDiv.innerHTML = `<p class="text-slate-400 italic col-span-full">No common top holdings found.</p>`;
+            }
+
+            // 5. Sector (Handled by Image now)
+            // We can hide the text container if we want, or just leave the image
+            // The image is inside #sector-content now
+
+
+            // 6. Diversity
+            document.getElementById("diversity-score-val").innerText = data.diversity_score + "/10";
+            document.getElementById("diversity-score-circle").className = `w-32 h-32 rounded-full border-8 ${data.diversity_score > 7 ? 'border-green-500 text-green-600' : data.diversity_score > 4 ? 'border-yellow-500 text-yellow-600' : 'border-red-500 text-red-600'} flex items-center justify-center mb-4 relative`;
+            document.getElementById("diversity-msg").innerText = data.diversity_msg;
+        }
+    </script>
+</body>
+</html>

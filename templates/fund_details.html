@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ fund.basic_info.fund_name }} - RAPS Wealth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom Colors based on the image (NJ Wealth style) */
+        :root {
+            --nj-blue: #005eb8;
+            --nj-red: #d32f2f;
+            --nj-text: #333333;
+            --nj-grey-bg: #f0f2f5;
+        }
+        
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--nj-grey-bg); }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Tabs for Performance Table */
+        .tab-btn { cursor: pointer; }
+        .tab-active { border-bottom: 2px solid var(--nj-blue); color: var(--nj-blue); font-weight: 600; background-color: white; }
+        .tab-inactive { color: #666; background-color: #f9fafb; }
+        .tab-inactive:hover { color: var(--nj-blue); }
+
+        /* Speedometer Gauge Simulation */
+        .gauge-container {
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(90deg, #22c55e 0%, #eab308 50%, #ef4444 100%);
+            border-top-left-radius: 120px;
+            border-top-right-radius: 120px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .gauge-cover {
+            width: 100px;
+            height: 50px;
+            background: white;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+        }
+        .gauge-needle {
+            width: 40px;
+            height: 4px;
+            background: #333;
+            position: absolute;
+            bottom: 0;
+            left: 60px;
+            transform-origin: left center;
+            transition: transform 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <!-- Header (Standardized) -->
+    <header class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center h-auto md:h-20 py-4 md:py-0 gap-4 md:gap-0">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="/static/logo.jpg" alt="RAPS Wealth" class="h-10 w-10 rounded-full object-cover">
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary tracking-tight">RAPS<span class="text-secondary">Wealth</span></h1>
+                        <p class="text-xs text-slate-500 font-medium tracking-widest">FINANCIAL SERVICES</p>
+                    </div>
+                </a>
+
+                <nav class="flex items-center gap-4 md:gap-8 overflow-x-auto max-w-full pb-2 md:pb-0 w-full md:w-auto justify-center md:justify-end">
+                    <a href="/" class="text-slate-600 hover:text-primary text-sm font-semibold whitespace-nowrap transition-colors duration-200">Home</a>
+                    <a href="/calculator" class="text-slate-600 hover:text-primary text-sm font-semibold whitespace-nowrap transition-colors duration-200">RAPS Calculator</a>
+                    <a href="/growth-simulator" class="text-slate-600 hover:text-primary text-sm font-semibold whitespace-nowrap transition-colors duration-200">Growth Calculator</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-start">
+            <div class="w-full">
+                <h1 class="text-xl md:text-2xl font-bold text-[#005eb8] mb-1">{{ fund.basic_info.fund_name }}</h1>
+                <div class="flex flex-wrap gap-4 text-xs text-gray-500 uppercase tracking-wide">
+                    <span>{{ fund.scheme_details.get('Category', 'Mutual Fund') }}</span>
+                    <span>•</span>
+                    <span>{{ fund.scheme_details.get('Nature', 'Open Ended') }}</span>
+                </div>
+            </div>
+            
+            <div class="text-right min-w-[150px] hidden lg:block opacity-0 pointer-events-none">
+                <!-- NAV moved to separate card -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4">
+
+        <!-- Basic Info and Riskometer Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <!-- Basic Info (2/3 width) -->
+            <div class="lg:col-span-2">
+                <div class="card">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="section-title mb-0">Scheme Details</div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-[#005eb8]">{{ fund.scheme_details.get('AUM (CR.)', fund.basic_info.aum) }}</div>
+                            <div class="text-xs text-gray-500">AUM (CR.)</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-6">
+                        <!-- Row 1 -->
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Nature</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Nature', 'N/A') }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Category</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Category', 'N/A') }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Benchmark</div>
+                            <div class="font-semibold text-gray-800 text-sm leading-tight">{{ fund.scheme_details.get('Benchmark', 'N/A') }}</div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Date of Inception</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Date of Inception', 'N/A') }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Age</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Age', 'N/A') }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Expense Ratio</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Expense Ratio', 'N/A') }}</div>
+                        </div>
+                        
+                        <!-- Row 3 -->
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Options Available</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Options Available', 'N/A') }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Minimum – Lump sum</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Minimum – Lump sum', 'N/A') }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Minimum – SIP</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Minimum – SIP', 'N/A') }}</div>
+                        </div>
+                        
+                        <!-- Row 4 -->
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Exit Load</div>
+                            <div class="font-semibold text-gray-800 text-sm">{{ fund.scheme_details.get('Exit Load', 'N/A') }}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Entry Load</div>
+                            <div class="font-semibold text-gray-800">{{ fund.scheme_details.get('Entry Load', 'N/A') }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Riskometer (1/3 width) -->
+            <!-- Right Column: NAV & Riskometer (Combined Card) -->
+            <div class="lg:col-span-1">
+                <div class="card h-full">
+                    <!-- NAV Section -->
+                    <div class="mb-6">
+                        <div class="section-title">NAV</div>
+                        <div class="text-4xl font-bold text-gray-800 mb-1">{{ fund.basic_info.nav }}</div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="text-xs text-gray-500">(%) Change Previous Day</span>
+                            <span class="text-sm font-semibold text-red-500">-0.52%</span> <!-- Placeholder -->
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500 border-t border-gray-100 pt-3">
+                            <span>As On</span>
+                            <div class="flex items-center gap-2">
+                                <span class="font-medium text-gray-700">21-11-2025</span> <!-- Placeholder -->
+                                <i class="far fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Separator -->
+                    <hr class="border-gray-200 my-6">
+
+                    <!-- Riskometer Section -->
+                    <div>
+                        <div class="section-title">Scheme Riskometer</div>
+                        
+                        <!-- SVG Riskometer -->
+                        <div class="relative w-full flex justify-center items-center" style="height: 120px;">
+                            <svg viewBox="0 0 260 130" class="w-full h-full overflow-visible">
+                                <!-- Risk Bands (Arc Segments) -->
+                                <!-- Low -->
+                                <path d="M 20 120 A 100 100 0 0 1 43 65" fill="none" stroke="#8BC34A" stroke-width="20" />
+                                <!-- Moderately Low -->
+                                <path d="M 45 62 A 100 100 0 0 1 85 32" fill="none" stroke="#CDDC39" stroke-width="20" />
+                                <!-- Moderate -->
+                                <path d="M 88 30 A 100 100 0 0 1 130 25" fill="none" stroke="#FFEB3B" stroke-width="20" />
+                                <!-- Moderately High -->
+                                <path d="M 130 25 A 100 100 0 0 1 172 30" fill="none" stroke="#FFC107" stroke-width="20" />
+                                <!-- High -->
+                                <path d="M 175 32 A 100 100 0 0 1 215 62" fill="none" stroke="#FF9800" stroke-width="20" />
+                                <!-- Very High -->
+                                <path d="M 217 65 A 100 100 0 0 1 240 120" fill="none" stroke="#F44336" stroke-width="20" />
+
+                                <!-- Labels -->
+                                <text x="30" y="135" font-size="8" text-anchor="middle" fill="#666" font-weight="600">Low</text>
+                                <text x="55" y="50" font-size="8" text-anchor="middle" fill="#666" font-weight="600" transform="rotate(-45 55,50)">Mod Low</text>
+                                <text x="105" y="15" font-size="8" text-anchor="middle" fill="#666" font-weight="600">Moderate</text>
+                                <text x="155" y="15" font-size="8" text-anchor="middle" fill="#666" font-weight="600">Mod High</text>
+                                <text x="205" y="50" font-size="8" text-anchor="middle" fill="#666" font-weight="600" transform="rotate(45 205,50)">High</text>
+                                <text x="230" y="135" font-size="8" text-anchor="middle" fill="#666" font-weight="600">Very High</text>
+
+                                <!-- Needle Logic -->
+                                {% set risk_level = 'Moderate' %}
+                                {% set needle_rot = 0 %}
+                                
+                                {% if 'Liquid' in fund.scheme_details.Category or 'Overnight' in fund.scheme_details.Category %}
+                                    {% set risk_level = 'Low' %}
+                                    {% set needle_rot = -75 %}
+                                {% elif 'Debt' in fund.scheme_details.Category and 'Short' in fund.scheme_details.Category %}
+                                    {% set risk_level = 'Moderately Low' %}
+                                    {% set needle_rot = -45 %}
+                                {% elif 'Debt' in fund.scheme_details.Category %}
+                                    {% set risk_level = 'Moderate' %}
+                                    {% set needle_rot = -15 %}
+                                {% elif 'Hybrid' in fund.scheme_details.Category and 'Aggressive' not in fund.scheme_details.Category %}
+                                    {% set risk_level = 'Moderately High' %}
+                                    {% set needle_rot = 15 %}
+                                {% elif 'Equity' in fund.scheme_details.Category or 'Aggressive' in fund.scheme_details.Category %}
+                                    {% set risk_level = 'Very High' %}
+                                    {% set needle_rot = 75 %}
+                                {% else %}
+                                    {% set risk_level = 'High' %}
+                                    {% set needle_rot = 45 %}
+                                {% endif %}
+
+                                <!-- Needle Group -->
+                                <g transform="translate(130, 120) rotate({{ needle_rot }})">
+                                    <circle cx="0" cy="0" r="5" fill="#333" />
+                                    <path d="M -3 0 L 0 -85 L 3 0 Z" fill="#333" />
+                                </g>
+                            </svg>
+                        </div>
+                        
+                        <div class="mt-1 font-bold text-gray-800 text-center text-base">
+                            {{ risk_level }} Risk
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fund Managers Section -->
+        <div class="card mt-8">
+            <div class="section-title">Fund Managers</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {% for manager in fund.fund_managers %}
+                <div class="flex items-start gap-3 pb-3 border-b md:border-0 last:border-0 border-gray-100">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#005eb8] font-bold text-sm shrink-0">
+                        {{ manager.name[4] if manager.name|length > 4 else 'FM' }}
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold text-sm">{{ manager.name }}</div>
+                        <div class="text-xs text-gray-500 mt-0.5">{{ manager.tenure }}</div>
+                        <div class="text-xs text-gray-400 mt-0.5 italic">{{ manager.managing }}</div>
+                        <button class="text-xs text-white bg-[#005eb8] px-2 py-1 rounded mt-2 hover:bg-blue-700">View Details</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+            
+            <!-- Portfolio Summary Header -->
+            <div class="mt-12 mb-6">
+                <h4 class="text-xl font-bold text-slate-800">Portfolio Summary</h4>
+                <small class="text-slate-500">As of Today</small>
+            </div>
+
+            <!-- Collapsible Sections Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                
+                <!-- Column 1 -->
+                <div class="space-y-6">
+                    <!-- Top Holdings -->
+                    <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                        <button onclick="toggleSection('top-holdings')" class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50 transition-colors text-left">
+                            <span class="font-bold text-slate-800">Top Holdings</span>
+                            <i id="icon-top-holdings" data-lucide="chevron-right" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="section-top-holdings" class="hidden border-t border-slate-200 p-4">
+                            <ul class="space-y-4">
+                                {% for name, value in fund.top_holdings.items() %}
+                                <li>
+                                    <div class="text-xs text-slate-500 mb-1">{{ name }}</div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                            <div class="h-full bg-[#005eb8] rounded-full" style="width: {{ value|replace('%', '') }}%"></div>
+                                        </div>
+                                        <span class="text-xs font-medium text-slate-700 w-12 text-right">{{ value }}</span>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Top Asset Type -->
+                    <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                        <button onclick="toggleSection('asset-type')" class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50 transition-colors text-left">
+                            <span class="font-bold text-slate-800">Top Asset Type</span>
+                            <i id="icon-asset-type" data-lucide="chevron-right" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="section-asset-type" class="hidden border-t border-slate-200 p-4">
+                            <ul class="space-y-4">
+                                {% for type, value in fund.top_asset_type.items() %}
+                                <li>
+                                    <div class="text-xs text-slate-500 mb-1">{{ type }}</div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                            <div class="h-full bg-[#005eb8] rounded-full" style="width: {{ value|replace('%', '') }}%"></div>
+                                        </div>
+                                        <span class="text-xs font-medium text-slate-700 w-12 text-right">{{ value }}</span>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="space-y-6">
+                    <!-- Top Sector Holdings -->
+                    <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                        <button onclick="toggleSection('sector-holdings')" class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50 transition-colors text-left">
+                            <span class="font-bold text-slate-800">Top Sector Holdings</span>
+                            <i id="icon-sector-holdings" data-lucide="chevron-right" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="section-sector-holdings" class="hidden border-t border-slate-200 p-4">
+                            <ul class="space-y-4">
+                                {% for sector, value in fund.sector_holdings.items() %}
+                                <li>
+                                    <div class="text-xs text-slate-500 mb-1">{{ sector }}</div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                            <div class="h-full bg-[#005eb8] rounded-full" style="width: {{ value|replace('%', '') }}%"></div>
+                                        </div>
+                                        <span class="text-xs font-medium text-slate-700 w-12 text-right">{{ value }}</span>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Credit Profile -->
+                    <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                        <button onclick="toggleSection('credit-profile')" class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50 transition-colors text-left">
+                            <span class="font-bold text-slate-800">Credit Profile</span>
+                            <i id="icon-credit-profile" data-lucide="chevron-right" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="section-credit-profile" class="hidden border-t border-slate-200 p-4">
+                            <ul class="space-y-4">
+                                {% for profile, value in fund.credit_profile.items() %}
+                                <li>
+                                    <div class="text-xs text-slate-500 mb-1">{{ profile }}</div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                            <div class="h-full bg-[#005eb8] rounded-full" style="width: {{ value|replace('%', '') }}%"></div>
+                                        </div>
+                                        <span class="text-xs font-medium text-slate-700 w-12 text-right">{{ value }}</span>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="space-y-6">
+                    <!-- Asset Allocation -->
+                    <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                        <button onclick="toggleSection('asset-allocation')" class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50 transition-colors text-left">
+                            <span class="font-bold text-slate-800">Asset Allocation</span>
+                            <i id="icon-asset-allocation" data-lucide="chevron-right" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="section-asset-allocation" class="hidden border-t border-slate-200 p-4">
+                            <ul class="space-y-4">
+                                {% for type, value in fund.asset_allocation.items() %}
+                                <li>
+                                    <div class="text-xs text-slate-500 mb-1">{{ type }}</div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                            {% if type == 'EQUITY' %}
+                                            <div class="h-full bg-yellow-400 rounded-full" style="width: {{ value|replace('%', '') }}%"></div>
+                                            {% elif type == 'DEBT' %}
+                                            <div class="h-full bg-slate-300 rounded-full" style="width: {{ value|replace('%', '') }}%"></div>
+                                            {% else %}
+                                            <div class="h-full bg-orange-400 rounded-full" style="width: {{ value|replace('%', '') }}%"></div>
+                                            {% endif %}
+                                        </div>
+                                        <span class="text-xs font-medium text-slate-700 w-12 text-right">{{ value }}</span>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lumpsum Performance -->
+                    <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+                        <button onclick="toggleSection('lumpsum-perf')" class="w-full flex items-center justify-between p-4 bg-white hover:bg-slate-50 transition-colors text-left">
+                            <span class="font-bold text-slate-800">Lumpsum Performance</span>
+                            <i id="icon-lumpsum-perf" data-lucide="chevron-right" class="w-5 h-5 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div id="section-lumpsum-perf" class="hidden border-t border-slate-200 p-4">
+                            <ul class="space-y-4">
+                                {% for item in fund.performance_lumpsum %}
+                                {% if item.Period in ['1 Year', '3 Year', '5 Year', 'Since Inception'] %}
+                                <li>
+                                    <div class="text-xs text-slate-500 mb-1">{{ item.Period }}</div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                            <div class="h-full bg-yellow-400 rounded-full" style="width: {{ item.Scheme|replace('%', '') }}%"></div>
+                                        </div>
+                                        <span class="text-xs font-medium text-slate-700 w-12 text-right">{{ item.Scheme }}</span>
+                                    </div>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Performance Section -->
+            <div class="card mt-6">
+                <div class="section-title">Performance</div>
+                
+                <!-- Tabs for Lumpsum and SIP Performance -->
+                <div class="border-b border-gray-200 mb-4">
+                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                        <button onclick="switchPerformanceTab('lumpsum')" id="perf-tab-lumpsum" class="border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Lumpsum Performance
+                        </button>
+                        <button onclick="switchPerformanceTab('sip')" id="perf-tab-sip" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            SIP Performance
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Lumpsum Performance Content -->
+                <div id="perf-content-lumpsum" class="performance-tab-content">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {% for item in fund.performance_lumpsum %}
+                        {% if item.Period in ['1 Year', '3 Year', '5 Year', 'Since Inception'] %}
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-xs text-gray-500 mb-2">{{ item.Period }}</div>
+                            <div class="text-2xl font-bold text-[#005eb8]">{{ item.Scheme }}</div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- SIP Performance Content -->
+                <div id="perf-content-sip" class="performance-tab-content hidden">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {% for item in fund.performance_sip %}
+                        {% if item.Period in ['1 Year', '3 Year', '5 Year', 'Since Inception'] %}
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-xs text-gray-500 mb-2">{{ item.Period }}</div>
+                            <div class="text-2xl font-bold text-green-600">{{ item.Scheme }}</div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Details Section -->
+            <div class="card mt-6">
+                <div class="section-title">Portfolio Details</div>
+                
+                <!-- Asset Allocation Summary -->
+                <div class="grid grid-cols-3 gap-4 mb-6 bg-gray-50 p-4 rounded-lg">
+                    <div class="text-center">
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Equity</div>
+                        <div class="text-lg font-bold text-blue-600">{{ fund.asset_allocation.EQUITY if fund.asset_allocation else '0%' }}</div>
+                    </div>
+                    <div class="text-center border-l border-gray-200">
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Debt</div>
+                        <div class="text-lg font-bold text-green-600">{{ fund.asset_allocation.DEBT if fund.asset_allocation else '0%' }}</div>
+                    </div>
+                    <div class="text-center border-l border-gray-200">
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Others</div>
+                        <div class="text-lg font-bold text-purple-600">{{ fund.asset_allocation.OTHERS if fund.asset_allocation else '0%' }}</div>
+                    </div>
+                </div>
+
+                <!-- Sub-tabs for Equity/Debt/Others -->
+                <div class="border-b border-gray-200 mb-4">
+                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                        <button onclick="switchPortfolioTab('equity')" id="tab-equity" class="border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Equity
+                        </button>
+                        <button onclick="switchPortfolioTab('debt')" id="tab-debt" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Debt
+                        </button>
+                        <button onclick="switchPortfolioTab('others')" id="tab-others" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                            Others
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Table Container -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200" id="portfolioTable">
+                        <thead class="bg-gray-50">
+                            <tr id="portfolioTableHeader">
+                                <!-- Headers injected by JS -->
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="portfolioTableBody">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 mt-4">
+                    <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-sm text-gray-700">
+                                Showing <span class="font-medium" id="startRow">1</span> to <span class="font-medium" id="endRow">10</span> of <span class="font-medium" id="totalRows">0</span> results
+                            </p>
+                        </div>
+                        <div>
+                            <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                                <button onclick="prevPage()" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                                    <span class="sr-only">Previous</span>
+                                    <i class="fas fa-chevron-left h-5 w-5"></i>
+                                </button>
+                                <button onclick="nextPage()" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                                    <span class="sr-only">Next</span>
+                                    <i class="fas fa-chevron-right h-5 w-5"></i>
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historical NAV & Predictions Section -->
+            {% if nav_data and nav_data.chart_image %}
+            <div class="card mt-6">
+                <div class="section-title">
+                    <span>Historical NAV & Predictions</span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="reloadPage()" class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 px-2 py-1 rounded transition-colors" title="Reload Page">
+                            <i class="fas fa-sync-alt"></i> Retry
+                        </button>
+                        <span class="text-xs font-normal text-gray-500">30-Day Forecast</span>
+                    </div>
+                </div>
+                <div class="relative w-full flex justify-center">
+                    <img src="data:image/png;base64,{{ nav_data.chart_image }}" alt="NAV History and Prediction Chart" class="max-w-full h-auto rounded-lg border border-gray-100">
+                </div>
+                <div class="mt-4 text-xs text-gray-500 text-center">
+                    <p class="italic">Predictions are based on  Linear Regression, ARIMA, and LSTM.</p>
+                </div>
+            </div>
+            {% endif %}
+
+    </div>
+
+    <script>
+        // --- NAV Chart Logic ---
+        // No client-side chart logic needed anymore as we render server-side.
+        // The retry button simply reloads the page to fetch fresh data/chart.
+        function reloadPage() {
+            window.location.reload();
+        }
+
+        // Performance Tab Switching
+        function switchPerformanceTab(tab) {
+            // Hide all tab contents
+            document.querySelectorAll('.performance-tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Reset all tab buttons
+            document.querySelectorAll('[id^="perf-tab-"]').forEach(btn => {
+                btn.className = "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm";
+            });
+            
+            // Show selected tab content
+            document.getElementById('perf-content-' + tab).classList.remove('hidden');
+            
+            // Activate selected tab button
+            document.getElementById('perf-tab-' + tab).className = "border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm";
+        }
+
+        // Collapsible Sections Logic
+        function toggleSection(id) {
+            const section = document.getElementById(`section-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                icon.style.transform = 'rotate(90deg)';
+            } else {
+                section.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Pass data safely from Jinja to JS
+        const rawPortfolioData = {{ fund.portfolio_holdings | tojson }};
+        console.log('Portfolio Data:', rawPortfolioData);
+        
+        // Normalize data structure for the table
+        const portfolioData = {
+            equity: rawPortfolioData.equity ? rawPortfolioData.equity.map(item => ({
+                name: item['Scheme Name'],
+                sector: item['Sector'],
+                percentage: item['% of Total Assets'] + '%',
+                cumulative: item['Cumulative%'] ? item['Cumulative%'] + '%' : '-'
+            })) : [],
+            debt: rawPortfolioData.debt ? rawPortfolioData.debt.map(item => ({
+                name: item['Security Name'],
+                sector: item['Asset Type'],
+                percentage: item['% of Total Assets'] + '%',
+                cumulative: item['Cumulative%'] ? item['Cumulative%'] + '%' : '-'
+            })) : [],
+            others: rawPortfolioData.others ? rawPortfolioData.others.map(item => ({
+                name: item['Security Name'],
+                sector: item['Asset Type'],
+                percentage: item['% of Total Assets'] + '%',
+                cumulative: item['Cumulative%'] ? item['Cumulative%'] + '%' : '-'
+            })) : []
+        };
+
+        // Pagination state
+        const ITEMS_PER_PAGE = 9;
+        let currentPage = 1;
+        let currentPortfolioType = 'equity';
+
+        // Hide tabs that have no data and show the first available tab
+        function initializePortfolioTabs() {
+            const tabs = ['equity', 'debt', 'others'];
+            let firstAvailableTab = null;
+
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                if (btn) {
+                    if (!portfolioData[tab] || portfolioData[tab].length === 0) {
+                        // Hide tab button
+                        btn.style.display = 'none';
+                    } else {
+                        // Show tab button
+                        btn.style.display = 'block';
+                        if (!firstAvailableTab) {
+                            firstAvailableTab = tab;
+                        }
+                    }
+                }
+            });
+
+            // Switch to first available tab
+            if (firstAvailableTab) {
+                switchPortfolioTab(firstAvailableTab);
+            }
+        }
+
+        function switchPortfolioTab(type) {
+            currentPortfolioType = type;
+            currentPage = 1; // Reset to first page when switching tabs
+            
+            // Update Buttons
+            const tabs = ['equity', 'debt', 'others'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                if (btn && btn.style.display !== 'none') {
+                    if (tab === type) {
+                        btn.className = "border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm";
+                    } else {
+                        btn.className = "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm";
+                    }
+                }
+            });
+
+            // Update Table Headers
+            const tableHeader = document.getElementById('portfolioTableHeader');
+            if (tableHeader) {
+                if (type === 'equity') {
+                    tableHeader.innerHTML = `
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Scheme Name</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sector</th>
+                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">% of Total Assets</th>
+                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Cumulative%</th>
+                    `;
+                } else {
+                    tableHeader.innerHTML = `
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Security Name</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asset Type</th>
+                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">% of Total Assets</th>
+                        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Cumulative%</th>
+                    `;
+                }
+            }
+
+            // Render table with pagination
+            renderPortfolioTable();
+        }
+
+        function renderPortfolioTable() {
+            const tbody = document.getElementById('portfolioTableBody');
+            if (!tbody) return;
+            
+            const data = portfolioData[currentPortfolioType];
+            
+            if (!data || data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="px-6 py-4 text-center text-gray-400 italic">No holdings available for this category.</td></tr>`;
+                updatePaginationInfo(0, 0, 0);
+                return;
+            }
+
+            // Calculate pagination
+            const totalItems = data.length;
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalItems);
+            const currentPageData = data.slice(startIndex, endIndex);
+
+            // Render table rows
+            tbody.innerHTML = currentPageData.map(item => `
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 whitespace-normal text-sm font-medium text-gray-900">${item.name}</td>
+                    <td class="px-6 py-4 whitespace-normal text-sm text-gray-500">${item.sector}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-medium">${item.percentage}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">${item.cumulative}</td>
+                </tr>
+            `).join('');
+
+            // Update pagination info
+            updatePaginationInfo(startIndex + 1, endIndex, totalItems);
+        }
+
+        function updatePaginationInfo(start, end, total) {
+            const startRow = document.getElementById('startRow');
+            const endRow = document.getElementById('endRow');
+            const totalRows = document.getElementById('totalRows');
+            
+            if (startRow) startRow.textContent = start;
+            if (endRow) endRow.textContent = end;
+            if (totalRows) totalRows.textContent = total;
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPortfolioTable();
+            }
+        }
+
+        function nextPage() {
+            const data = portfolioData[currentPortfolioType];
+            const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPortfolioTable();
+            }
+        }
+
+        // Initialize Portfolio Table
+        initializePortfolioTabs();
+
+        // Tab Logic (Performance)
+        function switchTab(tab) {
+            const contentLumpsum = document.getElementById('tab-lumpsum');
+            const contentSip = document.getElementById('tab-sip');
+            const btnL = document.getElementById('btn-lumpsum');
+            const btnS = document.getElementById('btn-sip');
+
+            if (tab === 'lumpsum') {
+                contentLumpsum.classList.remove('hidden');
+                contentSip.classList.add('hidden');
+                btnL.classList.add('tab-active', 'text-[#005eb8]', 'border-b-2', 'border-[#005eb8]');
+                btnL.classList.remove('tab-inactive', 'text-gray-500');
+                btnS.classList.remove('tab-active', 'text-[#005eb8]', 'border-b-2', 'border-[#005eb8]');
+                btnS.classList.add('tab-inactive', 'text-gray-500');
+            } else {
+                contentLumpsum.classList.add('hidden');
+                contentSip.classList.remove('hidden');
+                btnS.classList.add('tab-active', 'text-[#005eb8]', 'border-b-2', 'border-[#005eb8]');
+                btnS.classList.remove('tab-inactive', 'text-gray-500');
+                btnL.classList.remove('tab-active', 'text-[#005eb8]', 'border-b-2', 'border-[#005eb8]');
+                btnL.classList.add('tab-inactive', 'text-gray-500');
+            }
+        }
+    </script>
+
+</body>
+</html>

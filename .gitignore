@@ -1,0 +1,18 @@
+# --- Python (Backend) ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+*.log
+
+# --- System / OS ---
+.DS_Store
+Thumbs.db
+
+# --- VS Code / Editors ---
+.vscode/
+.idea/
+/Database
